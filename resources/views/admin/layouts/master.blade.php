@@ -12,17 +12,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
 
-    {{-- datatable css       --}}
-    <link rel="stylesheet" href="//cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
-    {{-- datatable js  --}}
-    <script src="//cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
-
 
     <script src="{{ asset('backend/assets/js/charts-lines.js') }}" defer></script>
     <script src="{{ asset('backend/assets/js/charts-pie.js') }}" defer></script>
     <!-- You need focus-trap.js to make the modal accessible -->
     <script src="{{ asset('backend/assets/js/focus-trap.js') }}" defer></script>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 </head>
 
 <body>

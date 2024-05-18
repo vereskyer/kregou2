@@ -12,7 +12,8 @@
                         </h1>
 
                         {{-- update profile  --}}
-                        <form>
+                        <form action="{{ route('admin.profile.update') }}" method="POST">
+                            @csrf
                             <label class="block text-sm">
                                 <span class="text-gray-700 dark:text-gray-400">Name</span>
                                 <!-- focus-within sets the color for the icon when input is focused -->
@@ -20,7 +21,7 @@
                                     class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                     <input
                                         class="block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                                        value="{{ Auth::user()->name }}" />
+                                        value="{{ Auth::user()->name }}"  name="name"/>
                                     <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none">
 
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -39,7 +40,7 @@
                                     class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                     <input
                                         class="block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                                        value="{{ Auth::user()->email }}" />
+                                        value="{{ Auth::user()->email }}" name="email" type="email"/>
                                     <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none">
                                         <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                                             stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
@@ -72,10 +73,10 @@
                                 </div>
                             </label>
                             <!-- You should use a button here, as the anchor is only used for the example  -->
-                            <a class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-                                href="./login.html">
+                            <button class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                >
                                 Update Changes
-                            </a>
+                            </button>
                         </form>
 
                         <hr class="my-8" />

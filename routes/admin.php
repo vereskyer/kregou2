@@ -19,4 +19,6 @@ Route::get('/tables', [AdminController::class, 'tables'])->name('tables');
 
 // profile routes
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+Route::post('/profile/update/password', [ProfileController::class, 'updatePassword'])->name('password.update');
 

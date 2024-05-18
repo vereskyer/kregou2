@@ -41,9 +41,9 @@ class ProfileController extends Controller
         $user->save();
 
         // return redirect()->back()->with('success', 'Profile updated successfully');
-        // toastr('Profile updated successfully');
+        toastr('Profile updated successfully');
 
-        return redirect()->route('admin.dashboard')->with('success', 'Profile updated successfully');
+        return redirect()->route('admin.dashboard');
     }
 
 
@@ -59,10 +59,10 @@ class ProfileController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        return redirect()->back()->with('success', 'Password updated successfully');
-        // toastr('Password updated successfully');
+        // return redirect()->back()->with('success', 'Password updated successfully');
+        toastr('Password updated successfully');
 
-        return redirect()->back();
+        return redirect()->route('admin.dashboard');
     }
 
 }

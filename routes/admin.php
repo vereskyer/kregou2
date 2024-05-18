@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\StoreController;
+use App\Http\Controllers\Backend\ProfileController;
 
 // admin dashboard sidebar
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -15,4 +16,7 @@ Route::get('/tables', [AdminController::class, 'tables'])->name('tables');
 
 // Store routes
 // Route::resource('store', StoreController::class);
+
+// profile routes
+Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
 

@@ -12,9 +12,20 @@
                         </h1>
 
                         {{-- update profile  --}}
-                        <form action="{{ route('admin.profile.update') }}" method="POST">
+                        <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+
                             <label class="block text-sm">
+                                <span class="text-gray-700 dark:text-gray-400">Image</span>
+                                <!-- focus-within sets the color for the icon when input is focused -->
+                                <div
+                                    class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                    <img class="w-24 h-24 rounded-full" src="{{ asset(Auth::user()->image) }}" alt="">
+                                </div>
+                                <input type="file" name="image" class="" />
+                            </label>
+
+                            <label class="block text-sm mt-4">
                                 <span class="text-gray-700 dark:text-gray-400">Name</span>
                                 <!-- focus-within sets the color for the icon when input is focused -->
                                 <div

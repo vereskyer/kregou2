@@ -5,9 +5,14 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use App\Traits\ImageUploadTrait;
 
 class ProfileController extends Controller
 {
+
+    use ImageUploadTrait;
+
     public function profile()
     {
         return view('admin.profile.index');
@@ -26,17 +31,17 @@ class ProfileController extends Controller
 
         $user = Auth::user();
 
-        // if ($request->hasFile('image')) {
-        //     if (File::exists(public_path($user->image))) {
-        //         File::delete(public_path($user->image));
+        if ($request->hasFile('image')) {
+            if (File::exists(public_path($user->image))) {
+                File::delete(public_path($user->image));
 
-        //         $image = $this->uploadImage($request, 'image', 'uploads');
-        //     }
-        // }
+                $image = $this->uploadImage($request, 'image', 'uploads');
+            }
+        }
 
         $user->name = $request->name;
         $user->email = $request->email;
-        // $user->image = $image ?? $user->image;
+        $user->image = $image ?? $user->image;
 
         $user->save();
 

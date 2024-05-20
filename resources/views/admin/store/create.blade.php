@@ -80,11 +80,19 @@
                                         <select
                                             class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select"
                                             name="floor">
+                                            <option value="-3">B3</option>
+                                            <option value="-2">B2</option>
                                             <option value="-1">B1</option>
                                             <option value="1F" selected>1F</option>
                                             <option value="2F">2F</option>
                                             <option value="3F">3F</option>
                                             <option value="4F">4F</option>
+                                            <option value="5F">5F</option>
+                                            <option value="6F">6F</option>
+                                            <option value="7F">7F</option>
+                                            <option value="8F">8F</option>
+                                            <option value="9F">9F</option>
+                                            <option value="10F">10F</option>
                                             <!-- You can add more options as needed -->
                                         </select>
                                     </div>

@@ -56,22 +56,18 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                     
+
                                     </div>
                                     <div>
                                         <!-- focus-within sets the color for the icon when input is focused -->
                                         <div
                                             class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
-                                            <select
-                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select"
-                                                name="building_id">
-                                                <option value="" disabled selected>请选择大楼</option>
-                                                @foreach ($buildings as $building)
-                                                    <option value="{{ $building->id }}">{{ $building->name }}</option>
-                                                @endforeach
-                                            </select>
+                                            <button
+                                                class="mt-6 px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                                                添加新的大樓
+                                            </button>
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                             </label>

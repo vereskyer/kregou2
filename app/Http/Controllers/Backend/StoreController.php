@@ -30,7 +30,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.store.create');
     }
 
     /**

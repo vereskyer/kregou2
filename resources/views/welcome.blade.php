@@ -126,6 +126,33 @@
                 </div>
             </div>
         </div>
+
+        <!-- buttons -->
+<div class="p-4">
+    <button class="btn btn-primary">primary</button>
+    <button class="btn btn-secondary">secondary</button>
+    <button class="btn btn-accent">accent</button>
+  </div>
+  
+  <!-- same buttons with another theme! -->
+  <div class="p-4" data-theme="cupcake">
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-secondary">Secondary</button>
+    <button class="btn btn-accent">Accent</button>
+  </div>
+
+  <!-- Open the modal using ID.showModal() method -->
+<button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+<dialog id="my_modal_1" class="modal">
+  <form method="dialog" class="modal-box">
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <button class="btn">Close</button>
+    </div>
+  </form>
+</dialog>
+
+
     </section>
 </main>
 

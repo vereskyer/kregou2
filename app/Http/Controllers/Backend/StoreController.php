@@ -50,6 +50,16 @@ class StoreController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'building_id' => 'required',
             'price' => 'nullable',
+            'floor' => 'required',
+            'position' => 'nullable',
+            'phone' => 'nullable',
+            'handphone' => 'nullable',
+            'kakao' => 'nullable',
+            'wechat' => 'nullable',
+            'line' => 'nullable',
+            'instagram' => 'nullable',
+            'website' => 'nullable',
+            'ks_story' => 'nullable',
             
         ]);
 
@@ -79,6 +89,7 @@ class StoreController extends Controller
         $store->ks_story = $request->ks_story;
         $store->price = $request->price;
 
+        // dd($store);
         $store->save();
 
         // return redirect()->back()->with('success', 'Profile updated successfully');

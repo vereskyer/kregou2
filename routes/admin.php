@@ -15,7 +15,7 @@ Route::get('/modals', [AdminController::class, 'modals'])->name('modals');
 Route::get('/tables', [AdminController::class, 'tables'])->name('tables');
 
 // Store routes
-// Route::resource('store', StoreController::class);
+Route::resource('store', StoreController::class);
 
 // profile routes
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');

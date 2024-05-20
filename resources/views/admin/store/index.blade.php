@@ -30,14 +30,17 @@
       <div class="w-full overflow-hidden rounded-lg shadow-xs">
           <div class="w-full overflow-x-auto">
             
-              <table class="w-full whitespace-no-wrap">
+              <table class="w-full whitespace-no-wrap table-auto">
                   <thead>
                       <tr
                           class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                          <th class="px-4 py-3">Client</th>
-                          <th class="px-4 py-3">Amount</th>
-                          <th class="px-4 py-3">Status</th>
-                          <th class="px-4 py-3">Date</th>
+                          <th class="px-4 py-3">Name</th>
+                          <th class="px-4 py-3">Handphone</th>
+                          <th class="px-4 py-3">kakao</th>
+                          <th class="px-4 py-3">Wechat</th>
+                          <th class="px-4 py-3">Line</th>
+                          <th class="px-4 py-3">IG</th>
+                          <th class="px-4 py-3">Web</th>
                           <th class="px-4 py-3">Actions</th>
                       </tr>
                   </thead>
@@ -57,22 +60,29 @@
                                 <div>
                                     <p class="font-semibold">{{ $store->store_name }}</p>
                                     <p class="text-xs text-gray-600 dark:text-gray-400">
-                                        Unemployed
+                                        {{ $store->building->name }}. {{ $store->floor }} 樓 {{ $store->position }}
                                     </p>
                                 </div>
                             </div>
                         </td>
-                        <td class="px-4 py-3 text-sm">
-                            $ 369.95
-                        </td>
+
                         <td class="px-4 py-3 text-xs">
-                            <span
-                                class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">
-                                Pending
-                            </span>
+                            {{ $store->handphone }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            6/10/2020
+                            {{ $store->kakao }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                            {{ $store->wechat }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                            {{ $store->line }}
+                        </td>
+                        <td class="px-4 py-3 text-sm w-1">
+                            {{ $store->instagram }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                            {{ $store->website }}
                         </td>
                         <td class="px-4 py-3">
                             <div class="flex items-center space-x-4 text-sm">

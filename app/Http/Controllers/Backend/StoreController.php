@@ -11,11 +11,19 @@ class StoreController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $stores = Store::paginate(10);
-        return view('admin.store.index', compact('stores'));
+    public function index(Request $request)
+{
+    $query = Store::query();
+
+    if ($request->has('search')) {
+        $query->where('store_name', 'like', '%' . $request->input('search') . '%');
     }
+
+    $stores = $query->paginate(10);
+
+    return view('admin.store.index', compact('stores'));
+}
+
 
     /**
      * Show the form for creating a new resource.

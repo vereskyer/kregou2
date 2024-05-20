@@ -12,7 +12,8 @@
                         </h1>
 
                         {{-- update profile  --}}
-                        <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.store.store') }}" 
+                            class="mt-6 w-full" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <label class="block text-sm">
@@ -20,55 +21,162 @@
                                 <!-- focus-within sets the color for the icon when input is focused -->
                                 <div
                                     class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
-                                    <img class="w-12 h-12 rounded-full" src="{{ asset(Auth::user()->image) }}" alt="">
+                                    {{-- <img class="w-12 h-12 rounded-full" src="{{ asset(Auth::user()->image) }}" alt=""> --}}
                                 </div>
                                 <input type="file" name="image" class="" />
                             </label>
 
-                            <label class="block text-sm mt-4">
-                                <span class="text-gray-700 dark:text-gray-400">Name</span>
-                                <!-- focus-within sets the color for the icon when input is focused -->
-                                <div
-                                    class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
-                                    <input
-                                        class="block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                                        value="{{ Auth::user()->name }}"  name="name"/>
-                                    <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none">
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                                        </svg>
+                            <label class="block text-sm  mt-4">
+                                
+                                <div>
+                                    <span class="text-gray-700 dark:text-gray-400">檔口名稱</span>
+                                    <!-- focus-within sets the color for the icon when input is focused -->
+                                    <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <input
+                                            class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                            value="" name="store_name" />
                                     </div>
                                 </div>
                             </label>
 
                             <label class="block text-sm mt-4">
-                                <span class="text-gray-700 dark:text-gray-400">Email</span>
-                                <!-- focus-within sets the color for the icon when input is focused -->
-                                <div
-                                    class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
-                                    <input
-                                        class="block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                                        value="{{ Auth::user()->email }}" name="email" type="email"/>
-                                    <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none">
-                                        <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                                            stroke="currentColor">
-                                            <path
-                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                            </path>
-                                        </svg>
-
+                                <div class="flex space-x-4 w-full">
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">所屬大樓</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="" name="building_id" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">樓層</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="" name="floor" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">位置</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="" name="position" />
+                                        </div>
                                     </div>
                                 </div>
+                                
                             </label>
+
+                            <label class="block text-sm mt-4">
+                                <div class="flex space-x-4 w-full">
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">座機</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="" name="phone" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">手機</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="" name="handphone" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">kakao</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="" name="kakao" />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </label>
+
+                            <label class="block text-sm mt-4">
+                                <div class="flex space-x-4 w-full">
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">微信</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="" name="wechat" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">Line</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="" name="line" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">IG</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="" name="position" />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </label>
+
+                            <label class="block text-sm mt-4">
+                                <div class="flex space-x-4 w-full">
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">網站</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="" name="website" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">story</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="" name="floor" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">price</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="1000" name="price" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                            </label>
+
 
                             <!-- You should use a button here, as the anchor is only used for the example  -->
-                            <button class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-                                >
-                                Update Changes
+                            <button
+                                class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                                添加
                             </button>
                         </form>
 
@@ -86,7 +194,7 @@
                                     class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                     <input
                                         class="block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                                        type="password" name="current_password"/>
+                                        type="password" name="current_password" />
                                     <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="w-5 h-5">

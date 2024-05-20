@@ -12,8 +12,8 @@
                         </h1>
 
                         {{-- update profile  --}}
-                        <form action="{{ route('admin.store.store') }}" 
-                            class="mt-6 w-full" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.store.store') }}" class="mt-6 w-full" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
 
                             <label class="block text-sm">
@@ -27,11 +27,12 @@
                             </label>
 
                             <label class="block text-sm  mt-4">
-                                
+
                                 <div>
                                     <span class="text-gray-700 dark:text-gray-400">檔口名稱</span>
                                     <!-- focus-within sets the color for the icon when input is focused -->
-                                    <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                    <div
+                                        class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                         <input
                                             class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                             value="" name="store_name" />
@@ -44,16 +45,44 @@
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">所屬大樓</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
-                                            <input
-                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                                                value="" name="building_id" />
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <select
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select"
+                                                name="building_id">
+                                                <option value="" disabled selected>请选择大楼</option>
+                                                @foreach ($buildings as $building)
+                                                    <option value="{{ $building->id }}">{{ $building->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
+                                     
                                     </div>
+                                    <div>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <select
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select"
+                                                name="building_id">
+                                                <option value="" disabled selected>请选择大楼</option>
+                                                @foreach ($buildings as $building)
+                                                    <option value="{{ $building->id }}">{{ $building->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="block text-sm mt-4">
+                                <div class="flex space-x-4 w-full">
+
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">樓層</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                             <input
                                                 class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                                 value="" name="floor" />
@@ -62,14 +91,15 @@
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">位置</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                             <input
                                                 class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                                 value="" name="position" />
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </label>
 
                             <label class="block text-sm mt-4">
@@ -77,7 +107,8 @@
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">座機</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                             <input
                                                 class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                                 value="" name="phone" />
@@ -86,7 +117,8 @@
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">手機</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                             <input
                                                 class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                                 value="" name="handphone" />
@@ -95,14 +127,15 @@
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">kakao</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                             <input
                                                 class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                                 value="" name="kakao" />
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </label>
 
                             <label class="block text-sm mt-4">
@@ -110,7 +143,8 @@
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">微信</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                             <input
                                                 class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                                 value="" name="wechat" />
@@ -119,7 +153,8 @@
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">Line</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                             <input
                                                 class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                                 value="" name="line" />
@@ -128,14 +163,15 @@
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">IG</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                             <input
                                                 class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                                 value="" name="position" />
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </label>
 
                             <label class="block text-sm mt-4">
@@ -143,7 +179,8 @@
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">網站</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                             <input
                                                 class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                                 value="" name="website" />
@@ -152,7 +189,8 @@
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">story</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                             <input
                                                 class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                                 value="" name="floor" />
@@ -161,7 +199,8 @@
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">price</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                             <input
                                                 class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                                 value="1000" name="price" />
@@ -169,7 +208,7 @@
                                     </div>
 
                                 </div>
-                                
+
                             </label>
 
 

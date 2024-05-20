@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Store;
+use App\Models\Building;
 use Illuminate\Http\Request;
 use App\Traits\ImageUploadTrait;
 use App\Http\Controllers\Controller;
@@ -35,7 +36,8 @@ class StoreController extends Controller
      */
     public function create()
     {
-        return view('admin.store.create');
+        $buildings = Building::all();
+        return view('admin.store.create', compact('buildings'));
     }
 
     /**

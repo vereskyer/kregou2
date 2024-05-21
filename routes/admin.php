@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Shoporder;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShoporderController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\ProfileController;
@@ -23,3 +25,4 @@ Route::post('/profile/update', [ProfileController::class, 'update'])->name('prof
 Route::post('/profile/update/password', [ProfileController::class, 'updatePassword'])->name('password.update');
 
 // shop orders routes  
+Route::get('/shoporder', [ShoporderController::class, 'index'])->name('shoporder.index');

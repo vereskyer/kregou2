@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('user.layouts.master')
 
 @section('content')
 <main class="h-full overflow-y-auto">

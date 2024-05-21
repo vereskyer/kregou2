@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('user.layouts.master')
 
 @section('content')
     <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
@@ -12,7 +12,7 @@
                         </h1>
 
                         {{-- update profile  --}}
-                        <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('user.profile.update') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <label class="block text-sm">
@@ -75,7 +75,7 @@
                         <hr class="my-8" />
 
                         {{-- updata passwor  --}}
-                        <form method="post" action="{{ route('admin.password.update') }}">
+                        <form method="post" action="{{ route('user.password.update') }}">
 
                             @csrf
 

@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Backend\KoreanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Frontend\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,6 +20,9 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('/korean', function () {
-    return view('korean');
-});
+// korean frontend page
+Route::get('/korean', [KoreanController::class, 'index'])->name('korean.index');
+// korea show on admin page
+Route::get('/korean/show', [KoreanController::class, 'show'])->name('korean.show');
+// korean store
+Route::post('/korean', [KoreanController::class, 'store'])->name('korean.store');

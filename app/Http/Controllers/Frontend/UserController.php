@@ -74,4 +74,11 @@ class UserController extends Controller
 
         return redirect()->route('user.dashboard');
     }
+
+    public function shoporder()
+    {
+        $shoporders = Shoporder::where('user_id', Auth::user()->id)->paginate(10);
+        return view('user.shoporder.index', compact('shoporders'));
+    }
+     
 }

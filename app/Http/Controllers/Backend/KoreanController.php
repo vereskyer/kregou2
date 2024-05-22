@@ -9,7 +9,9 @@ class KoreanController extends Controller
 {
     public function index()
     {
-        return view('korean');
+        $koreans = \App\Models\Korean::paginate(10);
+
+        return view('korean', compact('koreans'));
     }
 
     public function store(Request $request)

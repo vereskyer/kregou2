@@ -80,5 +80,12 @@ class UserController extends Controller
         $shoporders = Shoporder::where('user_id', Auth::user()->id)->paginate(10);
         return view('user.shoporder.index', compact('shoporders'));
     }
+
+    public function namecard()
+    {
+        $user = Auth::user();
+
+        return view('user.namecard', compact('user'));
+    }
      
 }

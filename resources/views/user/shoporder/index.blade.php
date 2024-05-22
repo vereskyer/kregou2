@@ -22,7 +22,7 @@
                             <tr
                                 class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                 <th class="px-4 py-3">Store Name</th>
-                                <th class="px-4 py-3">User name</th>
+                                <th class="px-4 py-3">其他說明</th>
                                 <th class="px-4 py-3">status</th>
                                 <th class="px-4 py-3">created at</th>
                                 <th class="px-4 py-3">Actions</th>
@@ -52,7 +52,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 text-xs">{{ $shoporder->user->name }}</td>
+                                    <td class="px-4 py-3 text-xs">{{ $shoporder->admin_note}}</td>
                                     <td class="px-4 py-3 text-sm">{{ $shoporder->status }}</td>
                                     <td class="px-4 py-3 text-sm">{{ $shoporder->created_at }}</td>
                                     <td class="px-4 py-3">

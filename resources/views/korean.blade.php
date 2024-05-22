@@ -6,6 +6,7 @@
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
     <div class="overflow-x-auto">
         <table class="table table-zebra">
+            <label class="text-xl alert alert-info">訂貨輔助韓語--跟檔口訂貨時候常用到的一些韓語</label>
           <!-- head -->
           <thead>
             <tr>

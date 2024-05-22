@@ -21,7 +21,7 @@
                                 <div
                                     class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                     <input
-                                        class="block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                        class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                         value="" name="chinese" />
 
                                 </div>
@@ -33,7 +33,7 @@
                                 <div
                                     class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                     <input
-                                        class="block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                        class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                         value="" name="korean" />
 
                                 </div>
@@ -65,23 +65,65 @@
                             <th>id</th>
                             <th>中文</th>
                             <th>韩语</th>
-                            <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- row 1 -->
                         @foreach ($koreans as $korean)
-                        <tr>
-                            <th>{{$korean->id}}</th>
-                            <td>{{$korean->chinese}}</td>
-                            <td>{{$korean->korean}}</td>
-                            <td>Blue</td>
-                        </tr>
+                            <tr>
+                                <th>{{ $korean->id }}</th>
+                                <td>{{ $korean->chinese }}</td>
+                                <td>
+
+                                    <div class="grid grid-cols-8 gap-2 w-full max-w-[23rem]">
+                                        <label for="npm-install" class="sr-only">Label</label>
+                                        <input id="{{ $korean->id }}"" type="text"
+                                            class="col-span-6 bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            value="{{ $korean->korean }}" disabled readonly>
+                                        <button data-copy-to-clipboard-target="{{ $korean->id }}""
+                                            class="col-span-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 items-center inline-flex justify-center">
+                                            <span id="default-message">Copy</span>
+                                            <span id="success-message" class="hidden inline-flex items-center">
+                                                <svg class="w-3 h-3 text-white me-1.5" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="M1 5.917 5.724 10.5 15 1.5" />
+                                                </svg>
+                                                Copied!
+                                            </span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
-                       
                     </tbody>
                 </table>
+
+
             </div>
         </div>
+        <!-- 2. Include library -->
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+        <!-- 3. Instantiate clipboard -->
+        <script>
+            const clipboard = FlowbiteInstances.getInstance('CopyClipboard', 'npm-install');
+            const $defaultMessage = document.getElementById('default-message');
+            const $successMessage = document.getElementById('success-message');
+            
+            clipboard.updateOnCopyCallback((clipboard) => {
+                $defaultMessage.classList.add('hidden');
+                $successMessage.classList.remove('hidden');
+            
+                // reset to default state
+                setTimeout(() => {
+                    $defaultMessage.classList.remove('hidden');
+                    $successMessage.classList.add('hidden');
+                }, 2000);
+            })
+            
+        </script>
+
     </div>
 @endsection

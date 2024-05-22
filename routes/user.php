@@ -18,6 +18,7 @@ Route::post('/profile/update/password', [UserController::class, 'updatePassword'
 
 // shop orders routes  
 Route::get('/shoporder', [UserController::class, 'shoporder'])->name('shoporder.index');
+Route::get('/shoporder/create', [ShoporderController::class, 'create'])->name('shoporder.create');
 
 // name card
 Route::get('/namecard', [UserController::class, 'namecard'])->name('namecard');

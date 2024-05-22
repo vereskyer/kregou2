@@ -16,4 +16,9 @@ class ShoporderController extends Controller
         // dd($shoporders);
         return view('admin.shoporder.index', compact('shoporders'));
     }
+
+    public function create()
+    {
+        return view('user.shoporder.create');
+    }
 }

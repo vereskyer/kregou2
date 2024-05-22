@@ -21,4 +21,28 @@ class ShoporderController extends Controller
     {
         return view('user.shoporder.create');
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'store_name' => 'required',
+            'building' => 'required',
+            'floor' => 'nullable',
+            'position' => 'required',
+        ]);
+
+        $shoporder = new Shoporder();
+        $shoporder->user_id = Auth::id();
+        $shoporder->store_name = $request->input('store_name');
+        $shoporder->building = $request->input('building');
+        $shoporder->floor = $request->input('floor');
+        $shoporder->position = $request->input('position');
+        $shoporder->phone = $request->input('phone');
+        $shoporder->description = $request->input('description');
+        $shoporder->save();
+
+        toastr('Order created successfully');
+
+        return redirect()->route('user.shoporder.index');
+    }
 }

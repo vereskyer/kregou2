@@ -12,13 +12,19 @@ class Shoporder extends Model
 
     protected $fillable = [
         'user_id',
-        'shop_id',
-        'total',
+        'store_name',
+        'building',
+        'floor',
+        'position',
+        'phone',
+        'description',
         'status',
+        'admin_note',
     ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
 }

@@ -49,10 +49,10 @@
                                                     {{ $shoporder->building }}. {{ $shoporder->floor }} 樓
                                                     {{ $shoporder->position }}
                                                 </p>
-                                            </div>
+                                            </div>8
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 text-xs">{{ $shoporder->admin_note}}</td>
+                                    <td class="px-4 py-3 text-xs">{{ $shoporder->admin_note }}</td>
                                     <td class="px-4 py-3 text-sm">{{ $shoporder->status }}</td>
                                     <td class="px-4 py-3 text-xs">
                                         <span

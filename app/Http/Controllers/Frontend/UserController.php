@@ -6,6 +6,7 @@ use App\Models\Shoporder;
 use Illuminate\Http\Request;
 use App\Traits\ImageUploadTrait;
 use App\Http\Controllers\Controller;
+use App\Models\Korean;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -86,6 +87,12 @@ class UserController extends Controller
         $user = Auth::user();
 
         return view('user.namecard', compact('user'));
+    }
+
+    public function korean()
+    {
+        $koreans = Korean::paginate(10);
+        return view('user.korean', compact('koreans'));
     }
      
 }

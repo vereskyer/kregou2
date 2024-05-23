@@ -23,3 +23,6 @@ Route::post('/shoporder/store', [ShoporderController::class, 'store'])->name('sh
 
 // name card
 Route::get('/namecard', [UserController::class, 'namecard'])->name('namecard');
+
+// user dashboard korean
+Route::get('/korean', [UserController::class, 'korean'])->name('korean');

@@ -32,3 +32,6 @@ Route::post('/korean', [KoreanController::class, 'store'])->name('korean.store')
 // 定义用于搜索商店的 API 路由
 Route::get('/AGWcvMZ/search', [StoreController::class, 'search']);
 
+// image gallery
+Route::get('/image-gallery', [KoreanController::class, 'imageGallery'])->name('image-gallery');
+

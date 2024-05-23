@@ -36,4 +36,9 @@ class KoreanController extends Controller
         $koreans = \App\Models\Korean::all();
         return view('admin.korean-show', compact('koreans'));
     }
+
+    public function imageGallery()
+    {
+        return view('image-gallery');
+    }
 }

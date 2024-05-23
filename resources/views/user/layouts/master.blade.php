@@ -31,6 +31,7 @@
         padding: 10px;
         cursor: pointer;
         color:blueviolet;
+        font-weight: bold;
     }
     .search-item:hover {
         background-color: #f0f0f0; /* 背景颜色可以根据需要调整 */

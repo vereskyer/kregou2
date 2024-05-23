@@ -52,7 +52,8 @@ $(document).ready(function() {
                 success: function(response) {
                     $('#search-results').empty();
                     response.forEach(function(store) {
-                        $('#search-results').append('<div class="search-item" data-store=\'' + JSON.stringify(store) + '\'>' + store.store_name + '</div>');
+                        $('#search-results').append('<div class="search-item" data-store=\'' + JSON.stringify(store) + '\'>' + 
+                            store.store_name + ' - ' + store.building.name + store.floor + store.position + '</div>');
                     });
                     $('.search-item').on('click', function() {
                         let store = $(this).data('store');

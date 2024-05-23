@@ -17,18 +17,17 @@ class WordController extends Controller
 
     public function addWord(Request $request)
     {
-        Log::info('Request Data:', $request->all());
+        // Log::info('Request Data:', $request->all());
 
         // 验证请求数据
         $validatedData = $request->validate([
             'word' => 'required|string|max:255',
-            'context' => 'required|string',
+            'context' => 'nullable|string',
         ]);
 
-        // 创建并保存新单词
         $word = new Word();
         $word->word = $validatedData['word'];
-        $word->context = $validatedData['context'];
+        $word->context = $validatedData['context'] ?? 'No context provided';
         $word->save();
 
         return response()->json(['message' => 'Word added successfully!'], 200);

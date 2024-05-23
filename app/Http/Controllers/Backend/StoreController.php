@@ -6,6 +6,7 @@ use App\Models\Store;
 use App\Models\Building;
 use Illuminate\Http\Request;
 use App\Traits\ImageUploadTrait;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -129,4 +130,24 @@ class StoreController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        Log::info('Search query:', ['query' => $query]);
+
+        $stores = Store::with('building')
+            ->where('store_name', 'like', "%{$query}%")
+            ->orWhere('floor', 'like', "%{$query}%")
+            ->orWhere('position', 'like', "%{$query}%")
+            ->orWhere('phone', 'like', "%{$query}%")
+            ->get();
+
+        Log::info('Stores found:', ['stores' => $stores]);
+
+        return response()->json($stores->toArray());
+    }
+
+
 }

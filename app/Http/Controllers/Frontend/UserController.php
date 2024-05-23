@@ -77,7 +77,7 @@ class UserController extends Controller
 
     public function shoporder()
     {
-        $shoporders = Shoporder::where('user_id', Auth::user()->id)->paginate(10);
+        $shoporders = Shoporder::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(5);
         return view('user.shoporder.index', compact('shoporders'));
     }
 

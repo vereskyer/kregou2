@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Backend\KoreanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Backend\StoreController;
+use App\Http\Controllers\Backend\KoreanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,3 +27,8 @@ Route::get('/korean', [KoreanController::class, 'index'])->name('korean.index');
 Route::get('/korean/show', [KoreanController::class, 'show'])->name('korean.show');
 // korean store
 Route::post('/korean', [KoreanController::class, 'store'])->name('korean.store');
+
+
+// 定义用于搜索商店的 API 路由
+Route::get('/AGWcvMZ/search', [StoreController::class, 'search']);
+

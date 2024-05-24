@@ -4,6 +4,7 @@ use App\Models\Shoporder;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShoporderController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\KoreanArticleController;
 use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\ProfileController;
 
@@ -26,3 +27,8 @@ Route::post('/profile/update/password', [ProfileController::class, 'updatePasswo
 
 // shop orders routes  
 Route::get('/shoporder', [ShoporderController::class, 'index'])->name('shoporder.index');
+
+// articles routes
+Route::get('/articles', [KoreanArticleController::class, 'index'])->name('articles');
+Route::get('/articles/create', [KoreanArticleController::class, 'create'])->name('articles.create');
+Route::post('/articles/store', [KoreanArticleController::class, 'store'])->name('articles.store');

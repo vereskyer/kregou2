@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\KoreanController;
+use App\Http\Controllers\Backend\KoreanArticleController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,3 +36,5 @@ Route::get('/AGWcvMZ/search', [StoreController::class, 'search']);
 // image gallery
 Route::get('/image-gallery', [KoreanController::class, 'imageGallery'])->name('image-gallery');
 
+// front korean article route
+Route::get('/korean-article', [KoreanArticleController::class, 'koreanArticle'])->name('korean-article');

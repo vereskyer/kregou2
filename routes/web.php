@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\KoreanController;
 use App\Http\Controllers\Backend\KoreanArticleController;
+use App\Http\Controllers\Frontend\StoreController as FrontendStoreController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,3 +39,5 @@ Route::get('/image-gallery', [KoreanController::class, 'imageGallery'])->name('i
 
 // front korean article route
 Route::get('/korean-article', [KoreanArticleController::class, 'koreanArticle'])->name('korean-article');
+
+Route::get('/front-stores', [\App\Http\Controllers\Frontend\StoreController::class, 'index'])->name('front.stores.index');

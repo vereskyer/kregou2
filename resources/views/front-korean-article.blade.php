@@ -7,7 +7,6 @@
             </figure> --}}
             <div class="card-body">
                 <h2 class="card-title">{{ $article->content }}</h2>
-                
             </div>
         </div>
     @endforeach

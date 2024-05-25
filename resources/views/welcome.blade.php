@@ -248,7 +248,7 @@
                 </div>
             </div>
 
-            
+
             <div
                 class="stat border border-gray-300 rounded-lg p-4 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200">
                 <div class="stat-figure text-secondary">
@@ -285,6 +285,16 @@
 
         </div>
 
+        {{-- button  --}}
+        <div class="relative inline-flex group mt-5">
+            <div
+                class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+            </div>
+            <a href="#" title="Get quote now"
+                class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-purple-900 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                role="button"> Code Eating Ants
+            </a>
+        </div>
 
     </section>
 </main>

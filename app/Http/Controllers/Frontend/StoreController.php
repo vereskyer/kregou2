@@ -10,15 +10,15 @@ class StoreController extends Controller
 {
     public function index(Request $request)
     {
-    //     $query = Store::query();
+        $query = Store::query();
 
-    //     if ($request->has('search')) {
-    //         $query->where('store_name', 'like', '%' . $request->input('search') . '%');
-    //     }
-    // // 
-    //     $stores = $query->paginate(10);
+        if ($request->has('search')) {
+            $query->where('store_name', 'like', '%' . $request->input('search') . '%');
+        }
+    // 
+        $stores = $query->paginate(12);
 
-        $stores = Store::paginate(12);
+        // $stores = Store::paginate(12);
     
         return view('front-stores', compact('stores'));
     }

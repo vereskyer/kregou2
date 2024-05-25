@@ -6,9 +6,6 @@
     {{-- hero section end --}}
     <section class="text-gray-600 body-font">
 
-
-        <!-- buttons -->
-
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
 
             @foreach ($stores as $store)
@@ -18,7 +15,8 @@
                         <button class="btn btn-primary btn-sm">Follow</button>
                     </div>
                     <div class="stat-value text-lg">{{ $store->store_name }}</div>
-                    <div class="stat-title">{{ $store->building->name }}. {{ $store->floor }} 樓 {{ $store->position }}</div>
+                    <div class="stat-title">{{ $store->building->name }}. {{ $store->floor }} 樓 {{ $store->position }}
+                    </div>
                     <div class="stat-desc text-secondary flex items-center space-x-2 mt-1">
                         <div class="flex items-center flex-grow"> <!-- Updated this line -->
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -47,17 +45,35 @@
                 </div>
             @endforeach
 
-
-
-
         </div>
 
-        <div class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
+        <div class="mt-5" id="pagination">
             {{ $stores->links() }}
         </div>
-
 
     </section>
 </main>
 
 @include('layouts.footer')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if scroll position is stored in local storage
+        if (localStorage.getItem('scrollPosition')) {
+            // Restore the scroll position
+            window.scrollTo(0, localStorage.getItem('scrollPosition'));
+            // Remove the scroll position from local storage
+            localStorage.removeItem('scrollPosition');
+        }
+
+        // Add click event listener to pagination links
+        document.querySelectorAll('#pagination a').forEach(function(paginationLink) {
+            paginationLink.addEventListener('click', function(event) {
+                // Save the current scroll position in local storage
+                localStorage.setItem('scrollPosition', window.scrollY);
+            });
+        });
+    });
+</script>
+
+
+

@@ -22,4 +22,9 @@ class StoreController extends Controller
     
         return view('front-stores', compact('stores'));
     }
+
+    public function imageGrid()
+    {
+        return view('frontend.image-grid');
+    }
 }

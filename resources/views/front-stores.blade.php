@@ -4,6 +4,19 @@
 <main class="mt-6">
     @include('layouts.hero')
     {{-- hero section end --}}
+
+
+    <div class="w-11/12 md:w-3/4 lg:max-w-3xl m-auto">
+        <div class="relative z-30 text-base text-black">
+            <input type="text" value="" placeholder="搜索心儀檔口..."
+                class="mt-2 shadow-md focus:outline-none rounded-2xl py-3 px-6 block w-full">
+            <div
+                class="text-left absolute top-10 rounded-t-none rounded-b-2xl shadow bg-white divide-y w-full max-h-40 overflow-auto">
+            </div>
+        </div>
+    </div>
+
+
     <section class="text-gray-600 body-font">
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
@@ -74,6 +87,3 @@
         });
     });
 </script>
-
-
-

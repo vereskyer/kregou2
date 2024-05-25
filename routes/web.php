@@ -36,6 +36,8 @@ Route::get('/AGWcvMZ/search', [StoreController::class, 'search']);
 
 // image gallery
 Route::get('/image-gallery', [KoreanController::class, 'imageGallery'])->name('image-gallery');
+Route::get('/image-grid', [\App\Http\Controllers\Frontend\StoreController::class, 'imageGrid'])->name('image-grid');
+
 
 // front korean article route
 Route::get('/korean-article', [KoreanArticleController::class, 'koreanArticle'])->name('korean-article');

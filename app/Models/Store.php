@@ -33,4 +33,5 @@ class Store extends Model implements ProductInterface
             'description' => 'Purchase of Product #' . $this->name,
         ];
     }
+
 }

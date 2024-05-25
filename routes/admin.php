@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\KoreanArticleController;
 use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\UserController;
 
 // admin dashboard sidebar
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -32,3 +33,6 @@ Route::get('/shoporder', [ShoporderController::class, 'index'])->name('shoporder
 Route::get('/articles', [KoreanArticleController::class, 'index'])->name('articles');
 Route::get('/articles/create', [KoreanArticleController::class, 'create'])->name('articles.create');
 Route::post('/articles/store', [KoreanArticleController::class, 'store'])->name('articles.store');
+
+// users routes
+Route::get('/users', [UserController::class, 'index'])->name('users.index');

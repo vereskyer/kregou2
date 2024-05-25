@@ -25,7 +25,7 @@
                 <div
                     class="stat border border-gray-300 rounded-lg p-4 hover:bg-gray-100 hover:border-gray-400 hover:shadow-lg transition-all duration-200">
                     <div class="stat-figure text-secondary">
-                        <button class="btn btn-primary btn-sm">Follow</button>
+                        <button class="btn btn-primary btn-md">詳細信息</button>
                     </div>
                     <div class="stat-value text-lg">{{ $store->store_name }}</div>
                     <div class="stat-title">{{ $store->building->name }}. {{ $store->floor }} 樓 {{ $store->position }}

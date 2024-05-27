@@ -44,3 +44,4 @@ Route::delete('/users/{id}/destroy', [UserController::class, 'destroy'])->name('
 
 // user money routes
 Route::post('user/{id}/deposit', [UserController::class, 'deposit'])->name('users.deposit');
+Route::post('user/{id}/force-withdraw', [UserController::class, 'forceWithdraw'])->name('users.force-withdraw');

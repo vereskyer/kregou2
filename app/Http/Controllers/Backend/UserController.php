@@ -197,7 +197,7 @@ public function update(Request $request, string $id)
 
         toastr()->success('充值成功');
 
-        return redirect()->route('admin.user.edit', $id);
+        return redirect()->route('admin.users.edit', $id);
     }
 
     public function forceWithdraw(Request $request, $id)

@@ -109,15 +109,9 @@ class UserController extends Controller
 
     public function update(Request $request, string $id)
     {
-        // dd($request->all());
-        // Debugging: Check if the request data is received correctly
-        // try {
-        //     dd($request->all());
-        // } catch (\Exception $e) {
-        //     Log::error('Error in User update: ' . $e->getMessage());
-        //     return response()->json(['error' => 'Internal Server Error'], 500);
-        // }
 
+        // dd($request->all());
+        
         $request->validate([
             'name' => 'required|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
@@ -125,21 +119,19 @@ class UserController extends Controller
             'email' => 'required|max:255|email',
             'role' => 'max:255',
             'status' => 'required',
-        ]);
-
-        
+        ]);        
 
         $user = User::findOrFail($id);
 
-        $imagePath = $this->updateImage($request, 'image', 'uploads', $user->image);
-
+        // $imagePath = $this->updateImage($request, 'image', 'uploads', $user->image);
+        
         // $user->banner = $imagePath;
-        $user->image = empty($imagePath) ? $user->image : $imagePath;
+        // $user->image = empty($imagePath) ? $user->image : $imagePath;
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->email = $request->email;
         $user->role = $request->role;
-        $user->status = $request->status;
+        $user->status = $request->status;                                                                                                                                                                                                                                                                                                                                                                      
 
         $user->save();
 

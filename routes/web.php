@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\KoreanController;
+use App\Http\Controllers\Frontend\GoodItemsController;
 use App\Http\Controllers\Backend\KoreanArticleController;
 use App\Http\Controllers\Frontend\StoreController as FrontendStoreController;
 
@@ -43,3 +44,5 @@ Route::get('/image-grid', [\App\Http\Controllers\Frontend\StoreController::class
 Route::get('/korean-article', [KoreanArticleController::class, 'koreanArticle'])->name('korean-article');
 
 Route::get('/front-stores', [\App\Http\Controllers\Frontend\StoreController::class, 'index'])->name('front.stores.index');
+
+Route::get('good-items', [GoodItemsController::class, 'index'])->name('good-items.index');

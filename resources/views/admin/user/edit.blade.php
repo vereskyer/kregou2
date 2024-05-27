@@ -16,14 +16,14 @@
                             enctype="multipart/form-data">
                             @csrf
 
-                            {{-- @method('PUT') --}}
+                            @method('PUT')
 
                             <label class="block text-sm">
 
                                 <!-- focus-within sets the color for the icon when input is focused -->
                                 <div
                                     class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
-                                    <img class="w-24 h-24 rounded-full" src="{{ asset(Auth::user()->image) }}"
+                                    <img class="w-24 h-24 rounded-full" src="{{ asset("/storage/{$user->image}") }}"
                                         alt="">
                                 </div>
                                 <div class="mt-2">
@@ -44,6 +44,20 @@
                                         <input
                                             class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                             value="{{ $user->name }}" name="name" />
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="block text-sm  mt-4">
+
+                                <div>
+                                    <span class="text-gray-700 dark:text-gray-400">用户邮箱</span>
+                                    <!-- focus-within sets the color for the icon when input is focused -->
+                                    <div
+                                        class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <input
+                                            class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                            value="{{ $user->email }}" name="email" />
                                     </div>
                                 </div>
                             </label>
@@ -117,8 +131,7 @@
             </div>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 
     </div>
 @endsection

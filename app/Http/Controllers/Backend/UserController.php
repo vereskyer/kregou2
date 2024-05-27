@@ -107,11 +107,11 @@ class UserController extends Controller
     //     return redirect()->route('admin.users.index');
     // }
 
-    public function update(Request $request, string $id)
+public function update(Request $request, string $id)
     {
-
         // dd($request->all());
-        
+
+        // Validate the request
         $request->validate([
             'name' => 'required|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
@@ -119,25 +119,40 @@ class UserController extends Controller
             'email' => 'required|max:255|email',
             'role' => 'max:255',
             'status' => 'required',
-        ]);        
+        ]);
 
+        // Find the user
         $user = User::findOrFail($id);
 
-        // $imagePath = $this->updateImage($request, 'image', 'uploads', $user->image);
-        
-        // $user->banner = $imagePath;
-        // $user->image = empty($imagePath) ? $user->image : $imagePath;
+        // Update image if provided
+        $imagePath = $this->updateImage($request, 'image', 'uploads', $user->image);
+
+        // Update user fields
+        $user->image = empty($imagePath) ? $user->image : $imagePath;
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->email = $request->email;
         $user->role = $request->role;
-        $user->status = $request->status;                                                                                                                                                                                                                                                                                                                                                                      
+        $user->status = $request->status;
 
+        // Save the user
         $user->save();
 
-        toastr()->success('user updated successfully');
+        // Display success message
+        toastr()->success('User updated successfully');
 
-        return redirect()->route('admin.user.index');
+        // Redirect to user index
+        return redirect()->route('admin.users.index');
+    }
+
+    private function updateImage($request, $key, $directory, $currentImagePath)
+    {
+        if ($request->hasFile($key)) {
+            $file = $request->file($key);
+            $path = $file->store($directory, 'public');
+            return $path;
+        }
+        return $currentImagePath;
     }
 
 

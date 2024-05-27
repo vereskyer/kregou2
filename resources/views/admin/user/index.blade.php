@@ -21,7 +21,7 @@
                                 Search
                             </button>
 
-                            <a href="{{ route('admin.store.create') }}"
+                            <a href="{{ route('admin.users.create') }}"
                                 class="ml-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50">
                                 添加新的用戶
                             </a>

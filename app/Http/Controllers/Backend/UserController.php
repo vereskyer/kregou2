@@ -21,6 +21,42 @@ class UserController extends Controller
         return view('admin.user.index', compact('users'));
     }
 
+    public function create()
+    {
+        // $users = User::all();
+        return view('admin.user.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'phone' => 'nullable',
+            'email' => 'required|max:255|email',
+            'role' => 'max:255',
+            'status' => 'required',
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'password' => bcrypt($request->password),
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'role' => $request->role,
+            'status' => $request->status,
+        ]);
+
+        // $imagePath = $this->updateImage($request, 'image', 'uploads', $user->image);
+        // $user->image = empty($imagePath) ? $user->image : $imagePath;
+
+        $user->save();
+
+        toastr('user created successfully');
+
+        return redirect()->route('admin.users.index');
+    }
+
     public function edit(string $id)
     {
         $user = User::find($id);

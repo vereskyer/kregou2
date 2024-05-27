@@ -36,6 +36,8 @@ Route::post('/articles/store', [KoreanArticleController::class, 'store'])->name(
 
 // users routes
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::post('/users/{id}/update', [UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{id}/destroy', [UserController::class, 'destroy'])->name('users.destroy');

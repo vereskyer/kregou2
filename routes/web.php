@@ -43,6 +43,12 @@ Route::get('/image-grid', [\App\Http\Controllers\Frontend\StoreController::class
 // front korean article route
 Route::get('/korean-article', [KoreanArticleController::class, 'koreanArticle'])->name('korean-article');
 
-Route::get('/front-stores', [\App\Http\Controllers\Frontend\StoreController::class, 'index'])->name('front.stores.index');
 
 Route::get('good-items', [GoodItemsController::class, 'index'])->name('good-items.index');
+
+
+// storepayment route
+Route::get('/front-stores', [\App\Http\Controllers\Frontend\StoreController::class, 'index'])
+    ->name('front.stores.index');
+Route::get('store/{id}/payment', [\App\Http\Controllers\Frontend\StoreController::class, 'payment'])
+    ->name('store.payment');

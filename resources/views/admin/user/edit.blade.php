@@ -38,22 +38,28 @@
                             <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
                                 <thead class="bg-gray-50">
                                     <tr>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Name
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             地址
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             賬戶餘額
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Role
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Email
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Actions
                                         </th>
                                     </tr>
@@ -63,11 +69,12 @@
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
-                                                    <img class="h-10 w-10 rounded-full" src="{{ asset("/storage/{$user->image}") }}" alt="">
+                                                    <img class="h-10 w-10 rounded-full"
+                                                        src="{{ asset("/storage/{$user->image}") }}" alt="">
                                                 </div>
                                                 <div class="ml-4">
                                                     <div class="text-sm font-medium text-gray-900">
-                                                        {{ $user->name  }}
+                                                        {{ $user->name }}
                                                     </div>
                                                     <div class="text-sm text-gray-500">
                                                         {{ $user->email }}
@@ -80,7 +87,8 @@
                                             <div class="text-sm text-gray-500">詳細地址</div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                 {{ $user->balance }}
                                             </span>
                                         </td>
@@ -96,7 +104,7 @@
                                         </td>
                                     </tr>
                                     <!-- More rows... -->
-                            
+
                                 </tbody>
                             </table>
 
@@ -115,16 +123,20 @@
                                             <table class="min-w-full">
                                                 <thead class="bg-white border-b">
                                                     <tr>
-                                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                        <th scope="col"
+                                                            class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                             新增日期
                                                         </th>
-                                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                        <th scope="col"
+                                                            class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                             說明
                                                         </th>
-                                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                        <th scope="col"
+                                                            class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                             金額
                                                         </th>
-                                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                        <th scope="col"
+                                                            class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                             賬戶餘額
                                                         </th>
                                                     </tr>
@@ -132,29 +144,35 @@
                                                 <tbody>
                                                     <tr class="bg-gray-100 border-b">
                                                         @foreach ($transactions as $transaction)
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                            {{ $transaction->created_at }}</td>
-                                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                            meta
-                                                        </td>
-                                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                            {{ $transaction->amount }}
-                                                        </td>
-                                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                            {{ $user->balance }}
-                                                        </td>
-                                                        
-                                                        
+                                                            @if ($transaction->payable_type === 'App\Models\User')
+                                                                <td
+                                                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                                    {{ $transaction->created_at }}</td>
+                                                                <td
+                                                                    class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                                    {{ $transaction->meta['meta'] ?? 'N/A' }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                                    {{ $transaction->amount }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                                    {{ $user->balance }}
+                                                                </td>
+
+
                                                     </tr>
+                                                    @endif
                                                     @endforeach
-                                                 
-                            
+
+
                                                 </tbody>
                                             </table>
                                             <div class="pagination justify-content-center">
                                                 {{ $transactions->links() }}
                                             </div>
-    
+
                                         </div>
                                     </div>
                                 </div>
@@ -294,8 +312,8 @@
                                             <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
                                                 客戶名稱
                                             </label>
-                                            <input type="text" value="{{ $user->name }}" name="name" id="name"
-                                                placeholder="Full Name"
+                                            <input type="text" value="{{ $user->name }}" name="name"
+                                                id="name" placeholder="Full Name"
                                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                         </div>
                                         <div class="mb-5">

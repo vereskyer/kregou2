@@ -7,6 +7,7 @@ use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Traits\ImageUploadTrait;
 use App\DataTables\UserDataTable;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Bavix\Wallet\Models\Transaction;
 
@@ -29,7 +30,7 @@ class UserController extends Controller
         // dd($transactions);
 
         // 解析每个交易的 meta 字段
-         // 确保只在 meta 是字符串时进行解码
+        // 确保只在 meta 是字符串时进行解码
         foreach ($transactions as $transaction) {
             if (is_string($transaction->meta)) {
                 $transaction->meta = json_decode($transaction->meta, true);
@@ -39,17 +40,58 @@ class UserController extends Controller
         return view('admin.user.edit', compact(['user', 'transactions', 'balance']));
     }
 
+    // public function update(Request $request, string $id)
+    // {
+    //     dd($request->all());
+    //     $request->validate([
+    //         'name' => 'required|max:255',
+    //         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+    //         'phone' => 'nullable',
+    //         'email' => 'required|max:255|email',
+    //         'role' => 'max:255',
+    //         'status' => 'required',
+    //     ]);
+
+    //     $user = User::findOrFail($id);
+
+    //     $imagePath = $this->updateImage($request, 'image', 'uploads', $user->image);
+
+    //     // $user->banner = $imagePath;
+    //     $user->image = empty($imagePath) ? $user->image : $imagePath;
+    //     $user->name = $request->name;
+    //     $user->phone = $request->phone;
+    //     $user->email = $request->email;
+    //     $user->role = $request->role;
+    //     $user->status = $request->status;
+
+    //     $user->save();
+
+    //     toastr()->success('user updated successfully');
+
+    //     return redirect()->route('admin.users.index');
+    // }
+
     public function update(Request $request, string $id)
     {
         // dd($request->all());
+        // Debugging: Check if the request data is received correctly
+        // try {
+        //     dd($request->all());
+        // } catch (\Exception $e) {
+        //     Log::error('Error in User update: ' . $e->getMessage());
+        //     return response()->json(['error' => 'Internal Server Error'], 500);
+        // }
+
         $request->validate([
             'name' => 'required|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'phone' => 'numeric|nullable',
+            'phone' => 'nullable',
             'email' => 'required|max:255|email',
             'role' => 'max:255',
             'status' => 'required',
         ]);
+
+        
 
         $user = User::findOrFail($id);
 
@@ -63,16 +105,13 @@ class UserController extends Controller
         $user->role = $request->role;
         $user->status = $request->status;
 
-        // if ($request->hasFile('banner')) {
-
-        // }
-
-        $user->update();
+        $user->save();
 
         toastr()->success('user updated successfully');
 
-        return redirect()->route('admin.user');
+        return redirect()->route('admin.user.index');
     }
+
 
     public function destroy($id)
     {

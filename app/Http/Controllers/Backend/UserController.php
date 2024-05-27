@@ -61,7 +61,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $balance = $user->balance;
-        $transactions = Transaction::where('payable_id', $user->id)->orderBy('created_at', 'desc')->paginate(10);
+        $transactions = Transaction::where('payable_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
 
         // dd($transactions);
 

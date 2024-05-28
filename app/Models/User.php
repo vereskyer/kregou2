@@ -48,4 +48,21 @@ class User extends Authenticatable implements Customer
             'password' => 'hashed',
         ];
     }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
+
+      // Define the relationship with the Payment model
+      public function payments()
+      {
+          return $this->hasMany(Payment::class);
+      }
+  
 }

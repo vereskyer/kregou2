@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Bavix\Wallet\Exceptions\InsufficientFunds;
 
 
@@ -48,7 +49,7 @@ class StoreController extends Controller
             $user->pay($store);
 
             // 支付成功，返回支付页面
-            return redirect()->route('user.dashboard')->with('success', '支付成功！');
+            return redirect()->route('user.my-stores')->with('success', '支付成功！');
         } catch (InsufficientFunds $e) {
             // 处理余额不足的情况
             return back()->with('error', '余额不足，无法完成支付。');
@@ -56,5 +57,20 @@ class StoreController extends Controller
             // 处理其他错误
             return back()->with('error', '支付过程中出现错误，请稍后再试。');
         }
+    }
+
+    public function myStores()
+    {
+        $user = Auth::user();
+
+        // 獲取所有商品
+        $allstores = Store::all();
+
+        // 篩選出用戶已經購買的商品
+        $purchasedStores = $allstores->filter(function ($store) use ($user) {
+            return $user->paid($store);
+        });
+
+        return view('user.store.index', ['stores' => $purchasedStores]);
     }
 }

@@ -18,7 +18,7 @@
                     <a href="#"
                         class="flex w-full lg:w-fit items-center text-white justify-center rounded-lg bg-[#1053F3] px-6 py-2.5 font-semibold hover:shadow-lg hover:drop-shadow transition duration-200">
                         <span>
-                            查看答案
+                            我知道->提交答覆
                         </span>
                     </a>
                     <a href="{{ route('questions.create') }}"
@@ -26,19 +26,23 @@
                         <span>
                             我也想找款
                         </span>
-                    </a>
+                    </a>                     
                 </div>
+                <div class="p-4" data-theme="cupcake">
+                    <button class="btn btn-accent">查看会扣掉1000韩币</button>
+                  </div>
             </div>
             <div class="hero-image md:px-5 lg:px-0 w-full lg:w-1/2 rounded-3xl md:pt-2 lg:pt-0 relative isolate z-10">
                 <img class="rounded-3xl w-full"
-                    src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxMnx8c2VydmljZXxlbnwwfDB8fHwxNzEyMjIyNjQ3fDA&ixlib=rb-4.0.3&q=80&w=1080"
+                    src="{{ $question->image ? asset($question->image) : 'https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxMnx8c2VydmljZXxlbnwwfDB8fHwxNzEyMjIyNjQ3fDA&ixlib=rb-4.0.3&q=80&w=1080' }}"
                     alt="">
+
             </div>
         </div>
     @endforeach
 
 
-    
+
     @foreach ($questions as $question)
         <div class="card mt-3">
             <div class="card-body">

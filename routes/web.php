@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\KoreanController;
 use App\Http\Controllers\Frontend\GoodItemsController;
 use App\Http\Controllers\Backend\KoreanArticleController;
 use App\Http\Controllers\Frontend\StoreController as FrontendStoreController;
+use App\Http\Controllers\QuestionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,3 +53,6 @@ Route::get('/front-stores', [\App\Http\Controllers\Frontend\StoreController::cla
     ->name('front.stores.index');
 Route::get('store/{id}/payment', [\App\Http\Controllers\Frontend\StoreController::class, 'payment'])
     ->name('store.payment');
+
+    // 有偿问答
+Route::resource('questions', QuestionController::class);

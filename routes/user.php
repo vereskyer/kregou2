@@ -4,7 +4,7 @@ use App\Models\Shoporder;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\WalletController;
-use App\Http\Controllers\QuestionController;
+
 use App\Http\Controllers\ShoporderController;
 use App\Http\Controllers\FullCalenderController;
 use App\Http\Controllers\Frontend\UserController;
@@ -41,7 +41,7 @@ Route::get('/words', [WordController::class, 'showWords']);
 Route::get('/my-stores', [StoreController::class, 'myStores'])->name('my-stores');
 
 // 问答区 routes
-Route::resource('questions', QuestionController::class);
+
 Route::post('questions/{question}/answers', [AnswerController::class, 'store'])->name('answers.store');
 Route::get('answers/{answer}', [AnswerController::class, 'show'])->name('answers.show');
 Route::post('answers/{answer}/purchase', [AnswerController::class, 'purchase'])->name('answers.purchase');

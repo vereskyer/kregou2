@@ -1,7 +1,5 @@
-@extends('user.layouts.master')
-@section('content')
-    <div class="container">
-        <form action="{{ route('user.questions.store') }}" method="POST">
+  <div class="container">
+        <form action="{{ route('questions.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="content">Question</label>
@@ -10,4 +8,3 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-@endsection

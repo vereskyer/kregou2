@@ -19,7 +19,7 @@ class AnswerController extends Controller
             'question_id' => $question->id,
             'content' => $request->input('content'),
         ]);
-        return redirect()->route('user.questions.show', $question->id)->with('success', 'Answer posted successfully.');
+        return redirect()->route('questions.index', $question->id)->with('success', 'Answer posted successfully.');
     }
 
     public function show($id)

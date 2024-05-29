@@ -29,7 +29,7 @@
                     </a>                     
                 </div>
                 <div class="p-4" data-theme="cupcake">
-                    <button class="btn btn-accent">查看会扣掉1000韩币</button>
+                    <button class="btn btn-accent">查看會扣款1000韓幣</button>
                   </div>
             </div>
             <div class="hero-image md:px-5 lg:px-0 w-full lg:w-1/2 rounded-3xl md:pt-2 lg:pt-0 relative isolate z-10">

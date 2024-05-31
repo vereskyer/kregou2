@@ -54,5 +54,10 @@ Route::get('/front-stores', [\App\Http\Controllers\Frontend\StoreController::cla
 Route::get('store/{id}/payment', [\App\Http\Controllers\Frontend\StoreController::class, 'payment'])
     ->name('store.payment');
 
-    // 有偿问答
+// 有偿问答
 Route::resource('questions', QuestionController::class);
+
+// 一些有用的components
+Route::get('/components', function () {
+    return view('components');
+})->name('components.index');

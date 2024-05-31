@@ -3,8 +3,9 @@
 @section('content')
 <main class="mt-10 pl-6 h-screen pb-16 overflow-y-auto">
     <div class="p-4" data-theme="emerald">
-        <form id="shop-order-form" method="POST" action="{{ route('user.shoporder.store') }}">
+        <form id="shop-order-form" method="POST" action="{{ route('admin.shoporder.update', ['shoporder' => $shoporder->id]) }}">
             @csrf
+            @method('PUT')
             <button class="btn btn-secondary">市場取貨訂單，儘量韓國時間23:00之前提交</button>
             <div>
                 <input type="text" id="store-search" placeholder="檔口名稱" name="store_name" value="{{ $shoporder->store_name }}"
@@ -28,11 +29,11 @@
                     class="mt-4 input input-bordered input-primary w-full max-w-xs" />
             </div>
             <div>
-                <input type="text" id="phone" placeholder="狀態" name="status" value="{{ $shoporder->status }}"
+                <input type="text" id="status" placeholder="狀態" name="status" value="{{ $shoporder->status }}"
                     class="mt-4 input input-bordered input-primary w-full max-w-xs" />
             </div>
             <div>
-                <input type="text" id="description" placeholder="其他說明" name="description" value="{{ $shoporder->description }}"
+                <input type="text" id="description" placeholder="管理員備註" name="admin_note" value="{{ $shoporder->admin_note }}"
                     class="mt-4 input input-bordered input-primary w-full max-w-xs" />
             </div>
             <div class="flex justify-start">
@@ -41,43 +42,4 @@
         </form>
     </div>
 </main>
-@endsection
-
-@section('scripts')
-<script>
-$(document).ready(function() {
-    $('#store-search').on('input', function() {
-        let query = $(this).val();
-        if (query.length > 2) {
-            $.ajax({
-                url: '/AGWcvMZ/search',
-                method: 'GET',
-                data: { query: query },
-                success: function(response) {
-                    $('#search-results').empty();
-                    response.forEach(function(store) {
-                        $('#search-results').append('<div class="search-item" data-store=\'' + JSON.stringify(store) + '\'>' + 
-                            store.store_name + ' - ' + store.building.name + store.floor + store.position + '</div>');
-                    });
-                    $('.search-item').on('click', function() {
-                        let store = $(this).data('store');
-                        $('#store-search').val(store.store_name);
-                        $('#building').val(store.building ? store.building.name : '');
-                        $('#floor').val(store.floor);
-                        $('#position').val(store.position);
-                        $('#phone').val(store.phone);
-                        $('#description').val(store.description);
-                        $('#search-results').empty();
-                    });
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching stores:", error);
-                }
-            });
-        } else {
-            $('#search-results').empty();
-        }
-    });
-});
-</script>
 @endsection

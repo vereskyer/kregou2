@@ -52,4 +52,28 @@ class ShoporderController extends Controller
         $shoporder= Shoporder::find($shoporder->id);
         return view('admin.shoporder.edit', compact('shoporder'));
     }
+
+    public function update(Request $request, Shoporder $shoporder)
+    {
+
+        $request->validate([
+            'store_name' => 'required',
+            'building' => 'required',
+            'floor' => 'nullable',
+            'position' => 'required',
+        ]);
+
+        $shoporder->store_name = $request->input('store_name');
+        $shoporder->building = $request->input('building');
+        $shoporder->floor = $request->input('floor');
+        $shoporder->position = $request->input('position');
+        $shoporder->phone = $request->input('phone');
+        $shoporder->admin_note = $request->input('admin_note');
+        $shoporder->status = $request->input('status');
+        $shoporder->save();
+
+        toastr('Order updated successfully');
+
+        return redirect()->route('admin.shoporder.index');
+    }
 }

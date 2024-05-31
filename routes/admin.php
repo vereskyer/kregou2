@@ -29,6 +29,7 @@ Route::post('/profile/update/password', [ProfileController::class, 'updatePasswo
 // shop orders routes  
 Route::get('/shoporder', [ShoporderController::class, 'index'])->name('shoporder.index');
 Route::get('/shoporder/{shoporder}/edit', [ShoporderController::class, 'edit'])->name('shoporder.edit');
+Route::put('/shoporder/{shoporder}/update', [ShoporderController::class, 'update'])->name('shoporder.update');
 
 // articles routes
 Route::get('/articles', [KoreanArticleController::class, 'index'])->name('articles');

@@ -45,4 +45,11 @@ class ShoporderController extends Controller
 
         return redirect()->route('user.shoporder.index');
     }
+
+    public function edit(Shoporder $shoporder)
+    {
+        // dd($shoporder);
+        $shoporder= Shoporder::find($shoporder->id);
+        return view('admin.shoporder.edit', compact('shoporder'));
+    }
 }

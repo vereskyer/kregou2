@@ -22,8 +22,11 @@
             <!-- row 1 -->
             @foreach ($koreans as $korean)
             <tr>
-                <th>{{ $korean->id - 3 }}</th>
-                <td>{{ $korean->chinese }}</td>
+
+                <th class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    {{ $korean->id - 3 }}</th>
+                <td class="mt-3 col-span-6 bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    {{ $korean->chinese }}</td>
                 <td>
                     <div class="grid grid-cols-8 gap-2 w-full max-w-[23rem]">
                         <input id="input-{{ $korean->id }}" type="text"
@@ -48,7 +51,7 @@
             @endforeach
           </tbody>
         </table>
-    <div>
+    <div class="mt-5">
         {{ $koreans->links() }}
     </div>
     </div>

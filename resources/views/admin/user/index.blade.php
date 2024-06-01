@@ -50,7 +50,7 @@
                                         <div class="flex items-center text-sm">
                                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                                                 <img class="object-cover w-full h-full rounded-full"
-                                                    src="{{ $user->image ? asset("/storage/$user->image") : asset('uploads/default-store.jpg') }}"
+                                                    src="{{ $user->image ? asset("$user->image") : asset('uploads/default-store.jpg') }}"
                                                     alt="" loading="lazy" />
                                                 {{-- <img class="object-cover w-full h-full rounded-full"
                                                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"

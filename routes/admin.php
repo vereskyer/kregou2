@@ -3,11 +3,12 @@
 use App\Models\Shoporder;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShoporderController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AdminController;
-use App\Http\Controllers\Backend\KoreanArticleController;
 use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\ProfileController;
-use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\BuildingController;
+use App\Http\Controllers\Backend\KoreanArticleController;
 
 // admin dashboard sidebar
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -47,3 +48,8 @@ Route::delete('/users/{id}/destroy', [UserController::class, 'destroy'])->name('
 // user money routes
 Route::post('user/{id}/deposit', [UserController::class, 'deposit'])->name('users.deposit');
 Route::post('user/{id}/force-withdraw', [UserController::class, 'forceWithdraw'])->name('users.force-withdraw');
+
+// building routes
+Route::get('/buildings', [BuildingController::class, 'index'])->name('buildings.index');
+Route::get('/buildings/{id}/edit', [StoreController::class, 'editBuilding'])->name('buildings.edit');
+Route::put('/buildings/{id}/update', [StoreController::class, 'updateBuilding'])->name('buildings.update');

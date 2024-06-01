@@ -61,3 +61,6 @@ Route::resource('questions', QuestionController::class);
 Route::get('/components', function () {
     return view('components');
 })->name('components.index');
+
+Route::get('all-stores', [FrontendStoreController::class, 'allStores'])
+    ->middleware('auth', 'role:vendor')->name('all-stores');

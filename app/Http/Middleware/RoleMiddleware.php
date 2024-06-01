@@ -16,7 +16,7 @@ class RoleMiddleware
     public function handle(Request $request, Closure $next, $role): Response
     {
         if ($request->user()->role !== $role) {
-            return redirect()->route('user.dashboard');
+            return redirect()->back()->with('error', '您目前沒有訪問的權限。請聯繫管理員。');
         }
         return $next($request);
     }

@@ -23,6 +23,9 @@
             <button class="btn btn-outline btn-secondary w-1/2 flex items-center justify-center">
                 可以保存韓國手機號，會自動添加kakao，韓國國民通信工具
             </button>
+            <a href="{{ route('all-stores') }}" class="btn btn-outline btn-secondary w-1/2 flex items-center justify-center">
+                    查看所有檔口
+            </a>
           </div>
           
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">

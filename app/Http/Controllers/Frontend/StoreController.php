@@ -73,4 +73,10 @@ class StoreController extends Controller
 
         return view('user.store.index', ['stores' => $purchasedStores]);
     }
+
+    public function allStores()
+    {
+        $stores = Store::paginate(10);
+        return view('all-stores', compact('stores'));
+    }
 }

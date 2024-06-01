@@ -20,7 +20,7 @@
                                 <!-- focus-within sets the color for the icon when input is focused -->
                                 <div
                                     class="mt-3 relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
-                                    <img class="object-cover w-24 h-24 rounded-full" src="{{ asset('storage/' . Auth::user()->image) }}" alt="" aria-hidden="true" />
+                                    <img class="object-cover w-24 h-24 rounded-full" src="{{ asset(Auth::user()->image) }}" alt="" aria-hidden="true" />
 
                                 </div>
                                 <input type="file" name="image" class="mt-3" />

@@ -38,16 +38,17 @@ class UserController extends Controller
         $user = Auth::user();
 
         if ($request->hasFile('image')) {
+            $image = $this->uploadImage($request, 'image', 'uploads/users');
             if (File::exists(public_path($user->image))) {
                 File::delete(public_path($user->image));
-
-                $image = $this->uploadImage($request, 'image', 'uploads');
             }
+
+            $user->image = $image ?? $user->image;
         }
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->image = $image ?? $user->image;
+        
 
         $user->save();
 

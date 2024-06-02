@@ -41,7 +41,10 @@ class BuildingController extends Controller
 
         $building->image = $image ?? $building->image;
 
-        $building->update($request->all());
+        $building->name = $request->name;
+        $building->tag = $request->tag;
+        $building->description = $request->description;
+        $building->save();
 
         toastr('Building updated successfully');
 

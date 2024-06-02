@@ -21,6 +21,8 @@
                 class="mx-auto mt-8 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-12 lg:mx-0 lg:max-w-none lg:grid-cols-3 ">
                 <!-- First blog post -->
                 @foreach ($buildings as $building)
+                {{-- 加上超級鏈接，點擊building，展示這個building中所有的stores --}}
+                {{-- <a href="http://www.baidu.com"> --}}
                     <article
                         class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 dark:bg-gray-700 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
                         <img src="{{ asset($building->image) }}"
@@ -48,6 +50,7 @@
                             {{ $building->description }}
                         </h3>
                     </article>
+                {{-- </a> --}}
                 @endforeach
 
 

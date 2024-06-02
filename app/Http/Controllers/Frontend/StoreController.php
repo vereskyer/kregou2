@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Building;
 use Illuminate\Support\Facades\Auth;
 use Bavix\Wallet\Exceptions\InsufficientFunds;
 
@@ -78,5 +79,11 @@ class StoreController extends Controller
     {
         $stores = Store::paginate(10);
         return view('all-stores', compact('stores'));
+    }
+
+    public function allBuildings()
+    {
+        $buildings = Building::paginate(3);
+        return view('frontend.all-buildings', compact('buildings'));
     }
 }

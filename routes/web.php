@@ -62,5 +62,9 @@ Route::get('/components', function () {
     return view('components');
 })->name('components.index');
 
+// all stores
 Route::get('all-stores', [FrontendStoreController::class, 'allStores'])
     ->middleware('auth', 'role:vendor')->name('all-stores');
+
+    // all buildings
+Route::get('all-buildings', [FrontendStoreController::class, 'allBuildings'])->name('all-buildings');

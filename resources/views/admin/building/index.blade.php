@@ -11,7 +11,7 @@
                 <div class="w-full overflow-x-auto">
 
                     <!-- Search Form -->
-                    <form method="GET" action="{{ route('admin.store.index') }}">
+                    <form method="GET" action="{{ route('admin.buildings.index') }}">
                         <div class="flex items-center mb-4">
                             <input type="text" name="search" placeholder="Search by Store Name"
                                 class="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
@@ -36,6 +36,7 @@
                                 <th class="px-4 py-3">Name</th>
                                 <th class="px-4 py-3">tag</th>
                                 <th class="px-4 py-3">description</th>
+                                <th class="px-4 py-3">actions</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -45,7 +46,7 @@
                                         <div class="flex items-center text-sm">
                                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                                                 <img class="object-cover w-full h-full rounded-full"
-                                                    src="{{ $building->image ? asset( $building->image) : asset('uploads/default-store.jpg') }}"
+                                                    src="{{ asset($building->image) }}"
                                                     alt="" loading="lazy" />
                                                     {{-- <img class="object-cover w-full h-full rounded-full"
                                                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
@@ -63,7 +64,8 @@
                                     <td class="px-4 py-3 text-sm">{{ $building->description }}</td>
                                     <td class="px-4 py-3">
                                         <div class="flex items-center space-x-4 text-sm">
-                                            <button
+                                            
+                                            <a href="{{ route('admin.buildings.edit', $building) }}"
                                                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                                 aria-label="Edit">
                                                 <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
@@ -72,7 +74,7 @@
                                                         d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
                                                     </path>
                                                 </svg>
-                                            </button>
+                                            </a>
                                             <button
                                                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                                 aria-label="Delete">

@@ -9,7 +9,7 @@ class Building extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'image', 'tag', 'description'];
 
     public function stores()
     {

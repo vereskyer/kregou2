@@ -51,5 +51,5 @@ Route::post('user/{id}/force-withdraw', [UserController::class, 'forceWithdraw']
 
 // building routes
 Route::get('/buildings', [BuildingController::class, 'index'])->name('buildings.index');
-Route::get('/buildings/{id}/edit', [StoreController::class, 'editBuilding'])->name('buildings.edit');
-Route::put('/buildings/{id}/update', [StoreController::class, 'updateBuilding'])->name('buildings.update');
+Route::get('/buildings/{id}/edit', [BuildingController::class, 'edit'])->name('buildings.edit');
+Route::put('/buildings/{id}/update', [BuildingController::class, 'update'])->name('buildings.update');

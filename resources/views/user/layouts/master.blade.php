@@ -24,6 +24,7 @@
     <!-- 引入 jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    @yield('fullcalendar')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>

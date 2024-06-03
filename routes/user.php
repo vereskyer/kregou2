@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\WalletController;
 
+use App\Http\Controllers\CalenderController;
 use App\Http\Controllers\ShoporderController;
 use App\Http\Controllers\FullCalenderController;
 use App\Http\Controllers\Frontend\UserController;
@@ -46,3 +47,7 @@ Route::post('questions/{question}/answers', [AnswerController::class, 'store'])-
 Route::get('answers/{answer}', [AnswerController::class, 'show'])->name('answers.show');
 Route::post('answers/{answer}/purchase', [AnswerController::class, 'purchase'])->name('answers.purchase');
 Route::post('wallet/recharge', [WalletController::class, 'recharge'])->name('wallet.recharge');
+
+// fullcalender
+Route::get('calendar-event', [CalenderController::class, 'index']);
+Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);

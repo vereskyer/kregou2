@@ -6,6 +6,7 @@ use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Building;
+use App\Models\StoreImage;
 use Illuminate\Support\Facades\Auth;
 use Bavix\Wallet\Exceptions\InsufficientFunds;
 
@@ -19,11 +20,11 @@ class StoreController extends Controller
         if ($request->has('search')) {
             $query->where('store_name', 'like', '%' . $request->input('search') . '%');
         }
-    // 
+        // 
         $stores = $query->paginate(12);
 
         // $stores = Store::paginate(12);
-    
+
         return view('front-stores', compact('stores'));
     }
 
@@ -85,5 +86,14 @@ class StoreController extends Controller
     {
         $buildings = Building::paginate(3);
         return view('frontend.all-buildings', compact('buildings'));
+    }
+
+    public function storeImages()
+    {
+          // 加载 store 关系，按创建时间倒序排列，并分页
+        $storeImages = StoreImage::with('store')->orderBy('created_at', 'desc')->paginate(30);
+
+        // 返回视图，并传递图片数据
+        return view('frontend.store-images', compact('storeImages'));
     }
 }

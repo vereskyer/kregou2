@@ -68,3 +68,7 @@ Route::get('all-stores', [FrontendStoreController::class, 'allStores'])
 
     // all buildings
 Route::get('all-buildings', [FrontendStoreController::class, 'allBuildings'])->name('all-buildings');
+
+// store images
+Route::get('/store-images', [\App\Http\Controllers\Frontend\StoreController::class, 'storeImages'])
+    ->name('store-images');

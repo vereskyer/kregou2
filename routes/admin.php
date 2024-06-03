@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\BuildingController;
 use App\Http\Controllers\Backend\KoreanArticleController;
+use App\Http\Controllers\Backend\StoreImageController;
 
 // admin dashboard sidebar
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -21,6 +22,7 @@ Route::get('/tables', [AdminController::class, 'tables'])->name('tables');
 
 // Store routes
 Route::resource('store', StoreController::class);
+Route::post('store/{store}/images', [StoreController::class, 'storeImage'])->name('store.images');
 
 // profile routes
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');

@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('crud_events', function (Blueprint $table) {
+        Schema::create('store_images', function (Blueprint $table) {
             $table->id();
-            $table->string('event_name');
-            $table->date('event_start');
-            $table->date('event_end');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('store_id');
+            $table->string('image_path');
             $table->timestamps();
+
+            // 外键约束
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('crud_events');
+        Schema::dropIfExists('store_images');
     }
 };

@@ -20,17 +20,17 @@ class StoreController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-{
-    $query = Store::query();
+    {
+        $query = Store::query();
 
-    if ($request->has('search')) {
-        $query->where('store_name', 'like', '%' . $request->input('search') . '%');
+        if ($request->has('search')) {
+            $query->where('store_name', 'like', '%' . $request->input('search') . '%');
+        }
+
+        $stores = $query->paginate(10);
+
+        return view('admin.store.index', compact('stores'));
     }
-
-    $stores = $query->paginate(10);
-
-    return view('admin.store.index', compact('stores'));
-}
 
 
     /**
@@ -62,7 +62,7 @@ class StoreController extends Controller
             'instagram' => 'nullable',
             'website' => 'nullable',
             'ks_story' => 'nullable',
-            
+
         ]);
 
         // $user = Auth::user();
@@ -113,7 +113,9 @@ class StoreController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $store = Store::find($id);
+        $buildings = Building::all();
+        return view('admin.store.edit', compact('store', 'buildings'));
     }
 
     /**
@@ -150,8 +152,21 @@ class StoreController extends Controller
         return response()->json($stores->toArray());
     }
 
-
-
-   
-
+    public function storeImage(Request $request, Store $store)
+    {
+         // 确定文件输入名称、保存路径和商店ID
+         $inputName = 'images'; // 确保你的表单输入名称和这里一致
+         $path = 'uploads/store_images'; // 你想要保存图片的路径
+         $storeId = $store->id;
+ 
+         // 调用上传多张图片的方法
+         $imagePaths = $this->uploadMultiImage($request, $inputName, $path, $storeId);
+ 
+         // 根据需要返回响应，或者重定向
+         if ($imagePaths) {
+             return back()->with('success', 'Images uploaded successfully');
+         }
+ 
+         return back()->with('error', 'No images were uploaded');
+    }
 }

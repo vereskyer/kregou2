@@ -88,12 +88,18 @@ class StoreController extends Controller
         return view('frontend.all-buildings', compact('buildings'));
     }
 
-    public function storeImages()
+    public function storeImages(Request $request)
     {
-          // 加载 store 关系，按创建时间倒序排列，并分页
-        $storeImages = StoreImage::with('store')->orderBy('created_at', 'desc')->paginate(30);
+        $query = StoreImage::with('store');
 
-        // 返回视图，并传递图片数据
+        if ($search = $request->input('search')) {
+            $query->whereHas('store', function ($q) use ($search) {
+                $q->where('store_name', 'like', "%{$search}%");
+            });
+        }
+
+        $storeImages = $query->paginate(10);
+
         return view('frontend.store-images', compact('storeImages'));
     }
 }

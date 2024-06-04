@@ -757,20 +757,20 @@
                                         <span
                                             class="absolute inline-flex h-6 w-6 items-center justify-center rounded-full bg-blue-500 p-4 text-center text-base font-semibold text-white shadow">
                                             4</span>
-                                            <div class="mr-12 w-auto pt-1">
-                                                <h6 class="text-sm font-semibold text-blue-900">porky童裝商場</h6>
-                                                <p class="mt-1 text-xs text-gray-500">爲了更好的發展</p>
-                                            </div>
+                                        <div class="mr-12 w-auto pt-1">
+                                            <h6 class="text-sm font-semibold text-blue-900">porky童裝商場</h6>
+                                            <p class="mt-1 text-xs text-gray-500">爲了更好的發展</p>
+                                        </div>
                                     </div>
 
                                     <div class="relative mb-4">
                                         <span
                                             class="absolute inline-flex h-6 w-6 items-center justify-center rounded-full bg-blue-500 p-4 text-center text-base font-semibold text-white shadow">
                                             5</span>
-                                            <div class="mr-12 w-auto pt-1">
-                                                <h6 class="text-sm font-semibold text-blue-900">porky童裝商場</h6>
-                                                <p class="mt-1 text-xs text-gray-500">爲了更好的發展</p>
-                                            </div>
+                                        <div class="mr-12 w-auto pt-1">
+                                            <h6 class="text-sm font-semibold text-blue-900">porky童裝商場</h6>
+                                            <p class="mt-1 text-xs text-gray-500">爲了更好的發展</p>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -796,7 +796,8 @@
 
         <div class="mx-auto max-w-7xl px-6 lg:px-8 pt-8">
             <div class="mx-auto max-w-2xl text-center">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">From The Blog</h2>
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">From The Blog
+                </h2>
                 <p class="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300">
                     Dive into the latest in technology with our insightful blog posts.
                 </p>
@@ -806,17 +807,20 @@
                 <!-- First blog post -->
                 <article
                     class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 dark:bg-gray-700 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
-                    <img src="https://mblogthumb-phinf.pstatic.net/MjAxNzA0MDhfMTc2/MDAxNDkxNjI2OTcwNDE4.uqmlayUgsurteZh-WW8fsJGTh-ZWDm89gtZIpz4d1DMg.T1MtVTw-3ypZwvYmZh-9KQNV7uGXUES9EtKbQ4jbo4Mg.JPEG.2nd_bom/image_4488175541491626827704.jpg?type=w800" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+                    <img src="https://mblogthumb-phinf.pstatic.net/MjAxNzA0MDhfMTc2/MDAxNDkxNjI2OTcwNDE4.uqmlayUgsurteZh-WW8fsJGTh-ZWDm89gtZIpz4d1DMg.T1MtVTw-3ypZwvYmZh-9KQNV7uGXUES9EtKbQ4jbo4Mg.JPEG.2nd_bom/image_4488175541491626827704.jpg?type=w800"
+                        alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
                     <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
                     <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
-                    <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300"><time
-                            datetime="2023-10-11" class="mr-8">APM 에피엠</time>
+                    <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                        <time datetime="2023-10-11" class="mr-8">APM 에피엠</time>
                         <div class="-ml-4 flex items-center gap-x-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5-3.9 19.5m-2.1-19.5-3.9 19.5" />
-                              </svg>
-                              
-                              
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5-3.9 19.5m-2.1-19.5-3.9 19.5" />
+                            </svg>
+
+
                             <div class="flex gap-x-2.5">
                                 東大門女裝
                             </div>
@@ -826,45 +830,51 @@
                         <span class="absolute inset-0"></span>
                         東大門經營最久，最具影響力的批發商場之一。B1~3F是女裝，4F~7F是男裝。
                         參考：
-                        <a href="https://prjewel.com/zh/dongdaemun-wholesale-market-guide/">https://prjewel.com/zh/dongdaemun-wholesale-market-guide/</a>
+                        <a
+                            href="https://prjewel.com/zh/dongdaemun-wholesale-market-guide/">https://prjewel.com/zh/dongdaemun-wholesale-market-guide/</a>
                     </h3>
                 </article>
                 <!-- Second blog post -->
                 <article
                     class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 dark:bg-gray-700 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
-                    <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxibG9jayUyMGNoYWlufGVufDB8MHx8fDE3MTI3NTMxNjd8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxibG9jayUyMGNoYWlufGVufDB8MHx8fDE3MTI3NTMxNjd8MA&ixlib=rb-4.0.3&q=80&w=1080"
+                        alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
                     <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
                     <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
-                    <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300"><time
-                            datetime="2023-09-25" class="mr-8">Sept 25, 2023</time>
+                    <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                        <time datetime="2023-09-25" class="mr-8">Sept 25, 2023</time>
                         <div class="-ml-4 flex items-center gap-x-4"><svg viewBox="0 0 2 2"
                                 class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
                                 <circle cx="1" cy="1" r="1"></circle>
                             </svg>
                             <div class="flex gap-x-2.5">
-                                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="" class="h-6 w-6 flex-none rounded-full bg-white/10">Jane
+                                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt=""
+                                    class="h-6 w-6 flex-none rounded-full bg-white/10">Jane
                             </div>
                         </div>
                     </div>
                     <h3 class="mt-3 text-lg font-semibold leading-6 text-white">
-                        <a href="/tech-blog/post2"><span class="absolute inset-0"></span>The Rise of Blockchain Technology:
+                        <a href="/tech-blog/post2"><span class="absolute inset-0"></span>The Rise of Blockchain
+                            Technology:
                             A Comprehensive Guide</a>
                     </h3>
                 </article>
                 <!-- Third blog post -->
                 <article
                     class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 dark:bg-gray-700 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
-                    <img src="https://images.unsplash.com/photo-1666112835156-c65bb806ac73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxNXx8cXVhbnR1bSUyMGNvbXB1dGluZ3xlbnwwfDB8fHwxNzEyNzUzMTk2fDA&ixlib=rb-4.0.3&q=80&w=1080" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1666112835156-c65bb806ac73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxNXx8cXVhbnR1bSUyMGNvbXB1dGluZ3xlbnwwfDB8fHwxNzEyNzUzMTk2fDA&ixlib=rb-4.0.3&q=80&w=1080"
+                        alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
                     <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
                     <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
-                    <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300"><time
-                            datetime="2023-09-24" class="mr-8">Sept 24, 2023</time>
+                    <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                        <time datetime="2023-09-24" class="mr-8">Sept 24, 2023</time>
                         <div class="-ml-4 flex items-center gap-x-4"><svg viewBox="0 0 2 2"
                                 class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
                                 <circle cx="1" cy="1" r="1"></circle>
                             </svg>
                             <div class="flex gap-x-2.5">
-                                <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="" class="h-6 w-6 flex-none rounded-full bg-white/10">Michael
+                                <img src="https://randomuser.me/api/portraits/men/4.jpg" alt=""
+                                    class="h-6 w-6 flex-none rounded-full bg-white/10">Michael
                             </div>
                         </div>
                     </div>
@@ -876,7 +886,86 @@
                 <!-- More blog posts can be added similarly -->
             </div>
         </div>
-    
-    </div> 
+
+    </div>
+
+    <!-- source: https://flowrift.com/c/logo-cloud/atJUX?view=code -->
+
+    <div class="bg-white py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+            <div class="mb-4 flex flex-col items-center md:mb-8 lg:flex-row lg:justify-between">
+                <h2 class="mb-2 text-center text-2xl font-bold text-gray-800 lg:mb-0 lg:text-3xl">Trusted by the best
+                </h2>
+
+                <p class="max-w-md text-center text-gray-400 lg:text-right">Filler text is dummy text which has no
+                    meaning
+                    however looks very similar to real text.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 rounded-lg md:grid-cols-3 lg:gap-6">
+                <!-- logo - start -->
+                <div
+                    class="flex flex-col items-center justify-center h-16 p-4 text-gray-400 bg-gray-100 rounded-lg sm:h-32">
+                    <a href="https://www.example.com" class="text-center cursor-pointer">
+                        <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Naver</h1>
+                        <h3 class="text-md font-medium text-gray-900 sm:text-lg">韓國綜合搜索網站</h3>
+                    </a>
+                </div>
+                <!-- logo - end -->
+
+                <!-- logo - start -->
+                <div
+                    class="flex flex-col items-center justify-center h-16 p-4 text-gray-400 bg-gray-100 rounded-lg sm:h-32">
+                    <a href="https://www.example.com" class="text-center cursor-pointer">
+                        <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Naver</h1>
+                        <h3 class="text-md font-medium text-gray-900 sm:text-lg">韓國綜合搜索網站</h3>
+                    </a>
+                </div>
+                <!-- logo - end -->
+
+                <!-- logo - start -->
+                <div
+                    class="flex flex-col items-center justify-center h-16 p-4 text-gray-400 bg-gray-100 rounded-lg sm:h-32">
+                    <a href="https://www.example.com" class="text-center cursor-pointer">
+                        <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Naver</h1>
+                        <h3 class="text-md font-medium text-gray-900 sm:text-lg">韓國綜合搜索網站</h3>
+                    </a>
+                </div>
+                <!-- logo - end -->
+
+                <!-- logo - start -->
+                <div
+                    class="flex flex-col items-center justify-center h-16 p-4 text-gray-400 bg-gray-100 rounded-lg sm:h-32">
+                    <a href="https://www.example.com" class="text-center cursor-pointer">
+                        <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Naver</h1>
+                        <h3 class="text-md font-medium text-gray-900 sm:text-lg">韓國綜合搜索網站</h3>
+                    </a>
+                </div>
+                <!-- logo - end -->
+
+                <!-- logo - start -->
+                <div
+                    class="flex flex-col items-center justify-center h-16 p-4 text-gray-400 bg-gray-100 rounded-lg sm:h-32">
+                    <a href="https://www.example.com" class="text-center cursor-pointer">
+                        <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Naver</h1>
+                        <h3 class="text-md font-medium text-gray-900 sm:text-lg">韓國綜合搜索網站</h3>
+                    </a>
+                </div>
+                <!-- logo - end -->
+                <!-- logo - start -->
+                <div
+                    class="flex flex-col items-center justify-center h-16 p-4 text-gray-400 bg-gray-100 rounded-lg sm:h-32">
+                    <a href="https://www.example.com" class="text-center cursor-pointer">
+                        <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Naver</h1>
+                        <h3 class="text-md font-medium text-gray-900 sm:text-lg">韓國綜合搜索網站</h3>
+                    </a>
+                </div>
+                <!-- logo - end -->
+
+
+            </div>
+        </div>
+    </div>
 
     @include('layouts.footer')

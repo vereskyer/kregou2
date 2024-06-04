@@ -35,7 +35,7 @@
                                         class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                         <input
                                             class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                                            value="" name="store_name" />
+                                            value="{{ $store->store_name }}" name="store_name" />
                                     </div>
                                 </div>
                             </label>
@@ -47,25 +47,9 @@
                                         <!-- focus-within sets the color for the icon when input is focused -->
                                         <div
                                             class="mt-2 relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
-                                            <select
-                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select"
-                                                name="building_id" id="building-select">
-                                                <option value="" disabled selected>请选择大楼</option>
-                                                @foreach ($buildings as $building)
-                                                    <option value="{{ $building->id }}">{{ $building->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                                    </div>
-                                    <div>
-                                        <!-- focus-within sets the color for the icon when input is focused -->
-                                        <div
-                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
-                                            <button
-                                                class="mt-6 px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                                                添加新的大樓
-                                            </button>
+                                            <input
+                                            class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                            value="{{ $store->building->name }}" name="building" />
                                         </div>
 
                                     </div>
@@ -77,24 +61,11 @@
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">樓層</span>
                                         <!-- focus-within sets the color for the icon when input is focused -->
-                                        <select
-                                            class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select"
-                                            name="floor">
-                                            <option value="-3">B3</option>
-                                            <option value="-2">B2</option>
-                                            <option value="-1">B1</option>
-                                            <option value="1F" selected>1F</option>
-                                            <option value="2F">2F</option>
-                                            <option value="3F">3F</option>
-                                            <option value="4F">4F</option>
-                                            <option value="5F">5F</option>
-                                            <option value="6F">6F</option>
-                                            <option value="7F">7F</option>
-                                            <option value="8F">8F</option>
-                                            <option value="9F">9F</option>
-                                            <option value="10F">10F</option>
-                                            <!-- You can add more options as needed -->
-                                        </select>
+                                        <div>
+                                            <input
+                                            class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                            value="{{ $store->building->floor }}" name="floor" />
+                                        </div>
                                     </div>
                                     <div>
                                         <span class="text-gray-700 dark:text-gray-400">位置</span>

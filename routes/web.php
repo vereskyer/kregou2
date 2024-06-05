@@ -77,3 +77,6 @@ Route::get('/store-images', [\App\Http\Controllers\Frontend\StoreController::cla
 Route::get('dongdaemun-pickup', function () {
     return view('frontend.dongdaemun-pickup');
 })->name('dongdaemun-pickup');
+
+// 前臺展示websites
+Route::get('websites', [\App\Http\Controllers\Backend\WebsiteController::class, 'showWebsiteFrontend'])->name('websites.frontend');

@@ -7,6 +7,11 @@
             </div>
 
             <div class="px-5">
+                <a href="{{ route('websites.frontend') }}" class="text-base text-white hover:text-gray-200">
+                    韓國網站導航</a>
+            </div>
+
+            <div class="px-5">
                 <a href="{{ route('all-buildings') }}" class="text-base text-white hover:text-gray-200">
                     關於我們</a>
             </div>

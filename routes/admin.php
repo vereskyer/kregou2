@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\BuildingController;
 use App\Http\Controllers\Backend\KoreanArticleController;
 use App\Http\Controllers\Backend\StoreImageController;
+use App\Http\Controllers\Backend\WebsiteController;
 
 // admin dashboard sidebar
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -55,3 +56,9 @@ Route::post('user/{id}/force-withdraw', [UserController::class, 'forceWithdraw']
 Route::get('/buildings', [BuildingController::class, 'index'])->name('buildings.index');
 Route::get('/buildings/{id}/edit', [BuildingController::class, 'edit'])->name('buildings.edit');
 Route::put('/buildings/{id}/update', [BuildingController::class, 'update'])->name('buildings.update');
+
+// website routes
+Route::get('/websites', [WebsiteController::class, 'index'])->name('websites.index');
+Route::get('/websites/create', [WebsiteController::class, 'create'])->name('websites.create'); 
+Route::post('/websites/store', [WebsiteController::class, 'store'])->name('websites.store'); 
+Route::put('/websites/{website}/update', [WebsiteController::class, 'update'])->name('websites.update');

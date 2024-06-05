@@ -6,7 +6,8 @@
             </div>
 
             <div class="px-5">
-                <a href="{{ route('all-buildings') }}" class="text-base text-white hover:text-gray-200">關於我們</a>
+                <a href="{{ route('all-buildings') }}" class="text-base text-white hover:text-gray-200">
+                    關於我們</a>
             </div>
         </nav>
         <div class="mt-8 md:mb-8 flex justify-center space-x-6 md:order-3  ">

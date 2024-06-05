@@ -907,7 +907,7 @@
                 <!-- logo - start -->
                 <div
                     class="flex flex-col items-center justify-center h-16 p-4 text-gray-400 bg-gray-100 rounded-lg sm:h-32">
-                    <a href="https://www.example.com" class="text-center cursor-pointer">
+                    <a href="https://www.example.com" class="text-center cursor-pointer" target="_blank">
                         <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Naver</h1>
                         <h3 class="text-md font-medium text-gray-900 sm:text-lg">韓國綜合搜索網站</h3>
                     </a>
@@ -967,5 +967,68 @@
             </div>
         </div>
     </div>
+
+    {{-- 圖片輪播 --}}
+  
+    <div class="relative">
+        <div class="carousel max-w-xl flex">
+            <!-- Carousel items -->
+            <div class="carousel-item">
+                <img src="https://source.unsplash.com/random/800x600" alt="Carousel Image 1"
+                    class="w-full h-96 object-cover">
+            </div>
+            <div class="carousel-item">
+                <img src="https://source.unsplash.com/random/800x600?2" alt="Carousel Image 2"
+                    class="w-full h-96 object-cover">
+            </div>
+            <div class="carousel-item">
+                <img src="https://source.unsplash.com/random/800x600?3" alt="Carousel Image 3"
+                    class="w-full h-96 object-cover">
+            </div>
+        </div>
+    
+        <!-- Carousel controls -->
+        <div class="absolute inset-y-0 left-0 flex items-center justify-start pl-4">
+            <button
+                class="carousel-control-prev bg-gray-800 hover:bg-gray-700 text-white rounded-full p-2 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="absolute inset-y-0 right-0 flex items-center justify-end pr-4">
+            <button
+                class="carousel-control-next bg-gray-800 hover:bg-gray-700 text-white rounded-full p-2 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    
+    
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const prevButton = document.querySelector('.carousel-control-prev');
+        const nextButton = document.querySelector('.carousel-control-next');
+    
+        prevButton.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: -carousel.offsetWidth,
+                behavior: 'smooth'
+            });
+        });
+    
+        nextButton.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: carousel.offsetWidth,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+    
+
 
     @include('layouts.footer')

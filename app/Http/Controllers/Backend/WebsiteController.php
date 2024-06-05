@@ -10,7 +10,7 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        $websites = Website::all();
+        $websites = Website::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.website.index', compact('websites'));
     }
 

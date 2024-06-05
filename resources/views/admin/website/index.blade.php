@@ -80,10 +80,12 @@
                             @endforelse
                         </tbody>
                     </table>
+
+                
                 </div>
                 <div>
                     <!-- Pagination -->
-                    {{-- {{ $websites->links() }} --}}
+                    {{ $websites->links() }}
                 </div>
             </div>
         </div>

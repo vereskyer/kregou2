@@ -72,3 +72,8 @@ Route::get('all-buildings', [FrontendStoreController::class, 'allBuildings'])->n
 // store images
 Route::get('/store-images', [\App\Http\Controllers\Frontend\StoreController::class, 'storeImages'])
     ->name('store-images');
+
+// 東大門取貨訂單介紹
+Route::get('dongdaemun-pickup', function () {
+    return view('frontend.dongdaemun-pickup');
+})->name('dongdaemun-pickup');

@@ -969,66 +969,238 @@
     </div>
 
     {{-- 圖片輪播 --}}
-  
-    <div class="relative">
-        <div class="carousel max-w-xl flex">
-            <!-- Carousel items -->
-            <div class="carousel-item">
-                <img src="https://source.unsplash.com/random/800x600" alt="Carousel Image 1"
-                    class="w-full h-96 object-cover">
+    <!-- component -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <main class="grid min-h-screen w-full place-content-center bg-gray-900">
+        <div x-data="imageSlider"
+            class="relative mx-auto max-w-2xl overflow-hidden rounded-md bg-gray-100 p-2 sm:p-4">
+            <div class="absolute right-5 top-5 z-10 rounded-full bg-gray-600 px-2 text-center text-sm text-white">
+                <span x-text="currentIndex"></span>/<span x-text="images.length"></span>
             </div>
-            <div class="carousel-item">
-                <img src="https://source.unsplash.com/random/800x600?2" alt="Carousel Image 2"
-                    class="w-full h-96 object-cover">
+
+            <button @click="previous()"
+                class="absolute left-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 shadow-md">
+                <i class="fas fa-chevron-left text-2xl font-bold text-gray-500"></i>
+            </button>
+
+            <button @click="forward()"
+                class="absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 shadow-md">
+                <i class="fas fa-chevron-right text-2xl font-bold text-gray-500"></i>
+            </button>
+
+            <div class="relative h-80" style="width: 30rem">
+                <template x-for="(image, index) in images">
+                    <div x-show="currentIndex == index + 1" x-transition:enter="transition transform duration-300"
+                        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                        x-transition:leave="transition transform duration-300" x-transition:leave-start="opacity-100"
+                        x-transition:leave-end="opacity-0" class="absolute top-0">
+                        <img :src="image" alt="image" class="rounded-sm" />
+                    </div>
+                </template>
             </div>
-            <div class="carousel-item">
-                <img src="https://source.unsplash.com/random/800x600?3" alt="Carousel Image 3"
-                    class="w-full h-96 object-cover">
+        </div>
+    </main>
+
+    {{-- 視頻播放器-steps --}}
+    <div class="p-4 max-w-xl mx-auto dark:bg-gray-800">
+
+        <h3 class="font-heading dark:text-gray-100 mb-8 text-xl font-bold lg:text-2xl">
+            東大門女裝，南大門童裝檔口訂貨取貨說明
+        </h3>
+    
+        <div class="flex">
+            <div class="mr-4 flex flex-col items-center">
+                <div>
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-blue-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="h-6 w-6 text-blue-800 dark:text-slate-200">
+                            <path d="M12 5v14"></path>
+                            <path d="M18 13l-6 6"></path>
+                            <path d="M6 13l6 6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="h-full w-px bg-gray-300 dark:bg-slate-500"></div>
+            </div>
+            <div class="pt-1 pb-8">
+                <p class="mb-2 text-xl font-bold text-gray-900 dark:text-slate-300">
+                    <span class="text-blue-600">➊</span>
+                    首先需要在我們的buy系統，FB登陸（賬戶資金管理都在buy系統）-->
+                    <a href="https://s9.buyplus1.com.tw/b/10214181515192392/" target="_blank" class="text-blue-600">
+                        點擊註冊</a>
+                </p>
+    
+                <p class="mb-2 text-xl font-bold text-gray-900 dark:text-slate-300">
+                    Buy系統登陸以後，請聯繫我們開通賬號。
+                </p>
             </div>
         </div>
     
-        <!-- Carousel controls -->
-        <div class="absolute inset-y-0 left-0 flex items-center justify-start pl-4">
-            <button
-                class="carousel-control-prev bg-gray-800 hover:bg-gray-700 text-white rounded-full p-2 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            </button>
+        <div class="flex">
+            <div class="mr-4 flex flex-col items-center">
+                <div>
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-blue-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="h-6 w-6 text-blue-800 dark:text-slate-200">
+                            <path d="M12 5v14"></path>
+                            <path d="M18 13l-6 6"></path>
+                            <path d="M6 13l6 6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="h-full w-px bg-gray-300 dark:bg-slate-500"></div>
+            </div>
+            <div class="pt-1 pb-8">
+                <p class="mb-2 text-xl font-bold text-gray-900 dark:text-slate-300">
+                    <span class="text-blue-600">➋</span>
+                    其次，需要註冊這個網站的賬號（取貨訂單提交會這裏管理） -->
+                    <a href="https://www.daigou82.com/register" target="_blank" class="text-blue-600">
+                        點擊註冊</a>
+                </p>
+            </div>
         </div>
-        <div class="absolute inset-y-0 right-0 flex items-center justify-end pr-4">
-            <button
-                class="carousel-control-next bg-gray-800 hover:bg-gray-700 text-white rounded-full p-2 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </button>
+    
+        <div class="flex">
+            <div class="mr-4 flex flex-col items-center">
+                <div>
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-blue-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="h-6 w-6 text-blue-800 dark:text-slate-200">
+                            <path d="M12 5v14"></path>
+                            <path d="M18 13l-6 6"></path>
+                            <path d="M6 13l6 6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="h-full w-px bg-gray-300 dark:bg-slate-500"></div>
+            </div>
+            <div class="pt-1 pb-8">
+                <p class="mb-2 text-xl font-bold text-gray-900 dark:text-slate-300">
+                    <span class="text-blue-600">➌</span>
+                    第二步註冊以後 -->
+                    <a href="https://www.daigou82.com/login" target="_blank" class="text-blue-600">
+                        點擊登陸</a>
+                </p>
+                <p class="mb-2 text-xl font-bold text-gray-900 dark:text-slate-300">
+                    在用戶中心，點擊 Shop Orders，就可以看到"添加新的取貨"
+                </p>
+    
+                <img src="{{ asset('uploads/shoporder.png') }}" alt="daigou82.com" class="w-full mt-5">
+    
+            </div>
+        </div>
+    
+        <div class="flex">
+            <div class="mr-4 flex flex-col items-center">
+                <div>
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-blue-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="h-6 w-6 text-blue-800 dark:text-slate-200">
+                            <path d="M12 5v14"></path>
+                            <path d="M18 13l-6 6"></path>
+                            <path d="M6 13l6 6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="h-full w-px bg-gray-300 dark:bg-slate-500"></div>
+            </div>
+            <div class="pt-1 pb-8">
+                <p class="mb-2 text-xl font-bold text-gray-900 dark:text-slate-300">
+                    <span class="text-blue-600">➍</span>
+                    添加新的取貨，如果我們數據庫中已經保存了相關的檔口。那麼只要輸入部分檔口的名稱，就可以自動填入表格。
+                    如果沒有的話，需要手工添加表格相關的內容。或者也可以聯繫我們添加相關的檔口。
+                </p>
+    
+                <video class="w-full rounded-lg" style="height: 80%;" controls>
+                    <source src="{{ asset('uploads/pickup-dongdaemun.webm') }}" type="video/webm" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    
+        <div class="flex">
+            <div class="mr-4 flex flex-col items-center">
+                <div>
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-blue-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="h-6 w-6 text-blue-800 dark:text-slate-200">
+                            <path d="M12 5v14"></path>
+                            <path d="M18 13l-6 6"></path>
+                            <path d="M6 13l6 6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="h-full w-px bg-gray-300 dark:bg-slate-500"></div>
+            </div>
+            <div class="pt-1 pb-8">
+                <p class="mb-2 text-xl font-bold text-gray-900 dark:text-slate-300">
+                    <span class="text-blue-600">➎</span>
+                    第二天可以查看取貨訂單的狀態。沒有標註狀態的，即代表已經正常取貨。
+                </p>
+    
+                <img src="{{ asset('uploads/shoporder-status.png') }}" alt="daigou82.com" class="w-full mt-5">
+
+            </div>
+        </div>
+    
+        <div class="flex">
+            <div class="mr-4 flex flex-col items-center">
+                <div>
+                    <div
+                        class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-blue-900 bg-blue-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="h-6 w-6 text-white dark:text-slate-200">
+                            <path d="M5 12l5 5l10 -10"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-1">
+                <p class="mb-2 text-xl font-bold text-gray-900 dark:text-slate-300">
+                    <span class="text-blue-600">➏</span>
+                    正常取貨成功的，會入單在buy系統，進行扣款部分的處理。-->
+                    <a href="https://s9.buyplus1.com.tw/b/10214181515192392/" target="_blank" class="text-blue-600">
+                        登陸buy查看賬戶明細</a>
+                </p>
+            </div>
         </div>
     </div>
     
-    
+
     <script>
-        const carousel = document.querySelector('.carousel');
-        const prevButton = document.querySelector('.carousel-control-prev');
-        const nextButton = document.querySelector('.carousel-control-next');
-    
-        prevButton.addEventListener('click', () => {
-            carousel.scrollBy({
-                left: -carousel.offsetWidth,
-                behavior: 'smooth'
-            });
-        });
-    
-        nextButton.addEventListener('click', () => {
-            carousel.scrollBy({
-                left: carousel.offsetWidth,
-                behavior: 'smooth'
-            });
+        document.addEventListener("alpine:init", () => {
+            Alpine.data("imageSlider", () => ({
+                currentIndex: 1,
+                images: [
+                    "https://unsplash.it/640/425?image=30",
+                    "https://unsplash.it/640/425?image=40",
+                    "https://unsplash.it/640/425?image=50",
+                ],
+                previous() {
+                    if (this.currentIndex > 1) {
+                        this.currentIndex = this.currentIndex - 1;
+                    }
+                },
+                forward() {
+                    if (this.currentIndex < this.images.length) {
+                        this.currentIndex = this.currentIndex + 1;
+                    }
+                },
+            }));
         });
     </script>
-    
+
+
+
+
 
 
     @include('layouts.footer')

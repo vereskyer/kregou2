@@ -56,7 +56,7 @@
                     </h2>
                     <p>이름으로 적어주세요</p>
                 <h3 class="card-title">전화: 010.5598.5115</h3>
-                <h3 class="card-title">주소: 서울 동대문구 한천로 440 2층 천한무역</h3>
+                <h3 class="card-title">주소: 서울 동대문구 한천로 24길 31 1층 천한무역</h3>
                 <h3 class="card-title">우편번호: 02423</h3>
             </div>
         </div>

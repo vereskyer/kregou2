@@ -12,6 +12,8 @@
             東大門女裝，南大門童裝檔口訂貨取貨說明
         </h3>
 
+
+
         <div class="flex">
             <div class="mr-4 flex flex-col items-center">
                 <div>
@@ -187,7 +189,13 @@
                         登陸buy查看賬戶明細</a>
                 </p>
             </div>
+
+            
         </div>
+
+        <h3 class="mt-5 btn font-heading bg-green-300 dark:text-gray-100 mb-5 text-xl font-bold lg:text-2xl">
+            聯繫Line：bizkorea &nbsp;&nbsp;  微信：bizkorea
+        </h3>
     </div>
 
 

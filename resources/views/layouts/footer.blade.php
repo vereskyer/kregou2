@@ -1,6 +1,12 @@
 <footer class="bg-sky-400 rounded-lg mt-10 mb-5">
     <div class="mx-auto max-w-7xl py-8 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
         <nav class="-mx-5 -my-2 flex flex-wrap justify-center order-2" aria-label="Footer">
+
+            <div class="px-5">
+                <a href="{{ route('hanguodaigou') }}" class="text-base text-white hover:text-gray-200">
+                    韓國代購</a>
+            </div>
+            
             <div class="px-5">
                 <a href="{{ route('dongdaemun-pickup') }}" class="text-base text-white hover:text-gray-200">
                     東大門市場取貨說明</a>

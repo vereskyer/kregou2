@@ -80,3 +80,8 @@ Route::get('dongdaemun-pickup', function () {
 
 // 前臺展示websites
 Route::get('websites', [\App\Http\Controllers\Backend\WebsiteController::class, 'showWebsiteFrontend'])->name('websites.frontend');
+
+// 韓國代購介紹
+Route::get('hanguodaigou', function () {
+    return view('frontend.hanguodaigou');
+})->name('hanguodaigou');

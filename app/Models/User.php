@@ -64,5 +64,27 @@ class User extends Authenticatable implements Customer
       {
           return $this->hasMany(Payment::class);
       }
+
+      public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function hasRole($role)
+    {
+        return $this->roles()->where('name', $role)->exists();
+    }
+
+    public function assignRole($role)
+    {
+        $role = Role::where('name', $role)->firstOrFail();
+        $this->roles()->attach($role);
+    }
+
+    public function removeRole($role)
+    {
+        $role = Role::where('name', $role)->firstOrFail();
+        $this->roles()->detach($role);
+    }
   
 }

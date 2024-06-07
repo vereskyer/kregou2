@@ -18,12 +18,12 @@ return Application::configure(basePath: dirname(__DIR__))
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
 
-            Route::middleware(['web', 'auth', 'role:admin'])
+            Route::middleware(['web', 'auth', 'roles:admin'])
                 ->prefix('admin')
                 ->name('admin.')
                 ->group(base_path('routes/admin.php'));
 
-                Route::middleware(['web', 'auth', 'role:user'])
+                Route::middleware(['web', 'auth', 'roles:user, vipstore'])
                 ->prefix('user')
                 ->name('user.')
                 ->group(base_path('routes/user.php'));
@@ -31,7 +31,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-          'role' => RoleMiddleware::class,
+          'roles' => RoleMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

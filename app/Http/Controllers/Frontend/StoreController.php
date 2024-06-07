@@ -76,10 +76,23 @@ class StoreController extends Controller
         return view('user.store.index', ['stores' => $purchasedStores]);
     }
 
-    public function allStores()
+    public function allStores(Request $request)
     {
-        $stores = Store::paginate(10);
-        return view('all-stores', compact('stores'));
+        // $stores = Store::paginate(10);
+        // return view('all-stores', compact('stores'));
+
+        $query = $request->input('query');
+
+        $stores = Store::with('building')
+            ->when($query, function ($queryBuilder) use ($query) {
+                $queryBuilder->where('store_name', 'like', "%{$query}%")
+                    ->orWhere('floor', 'like', "%{$query}%")
+                    ->orWhere('position', 'like', "%{$query}%")
+                    ->orWhere('handphone', 'like', "%{$query}%");
+            })
+            ->paginate(10);
+
+        return view('all-stores', compact('stores', 'query'));
     }
 
     public function allBuildings()

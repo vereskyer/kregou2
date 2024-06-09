@@ -1,4 +1,8 @@
-@include('layouts.header')
+@extends('layouts.header')
+
+@section('title', '東大門女裝，南大門童裝檔口訂貨取貨說明')
+
+@section('content')
 
 
 <main class="mt-6">
@@ -222,9 +226,4 @@
         });
     </script>
 
-
-
-
-
-
-    @include('layouts.footer')
+@endsection

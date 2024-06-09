@@ -1,4 +1,8 @@
-@include('layouts.header')
+@extends('layouts.header')
+
+@section('title', '韓國網站導航')
+
+@section('content')
 
 
 <main class="mt-6">
@@ -68,7 +72,4 @@
 
 </main>
 
-
-
-
-    @include('layouts.footer')
+@endsection

@@ -1,6 +1,7 @@
-@include('layouts.header')
+@extends('layouts.header')
+@section('title', '韓國東大門女裝，南大門童裝批發大樓')
 
-
+@section('content')
 <main class="mt-6">
     @include('layouts.hero')
     {{-- hero section end --}}
@@ -84,4 +85,4 @@
     </script>
 </main>
 
-@include('layouts.footer')
+@endsection

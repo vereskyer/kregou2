@@ -1,5 +1,8 @@
-@include('layouts.header')
+@extends('layouts.header')
 
+@section('title', '韓國代購說明')
+
+@section('content')
 
 <main class="mt-6">
     {{-- @include('layouts.hero') --}}
@@ -150,7 +153,4 @@
 
 
 
-
-
-
-    @include('layouts.footer')
+@endsection

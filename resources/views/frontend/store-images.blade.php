@@ -1,6 +1,10 @@
 <!-- resources/views/frontend/store-images.blade.php -->
 
-@include('layouts.header')
+@extends('layouts.header')
+
+@section('title', '韓國東大門|南大門檔口新款圖片')
+
+@section('content')
 
 
 <div class="mt-5 mb-5">
@@ -63,4 +67,4 @@
     {{ $storeImages->links() }}
 </div>
 
-@include('layouts.footer')
+@endsection

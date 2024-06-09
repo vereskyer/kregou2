@@ -1,4 +1,8 @@
-@include('layouts.header')
+@extends('layouts.header')
+
+@section('title', '東大門|南大門檔口聯繫資訊')
+
+@section('content')
 
 
 <main class="mt-6">
@@ -166,7 +170,7 @@
     </section>
 </main>
 
-@include('layouts.footer')
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Check if scroll position is stored in local storage
@@ -186,3 +190,5 @@
         });
     });
 </script>
+
+@endsection

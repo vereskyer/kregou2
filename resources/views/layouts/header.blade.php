@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>韓國易購</title>
+    <title>韓國易購-韓國代購12年-東大門代購|南大門代購|玩具街代購|美妝代購|韓國零食代購|批發-@yield('title')</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -106,3 +106,8 @@
                         </div>
                     </nav>
                 </header>
+
+
+                @yield('content')
+
+                @include('layouts.footer')

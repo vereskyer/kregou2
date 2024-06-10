@@ -9,6 +9,9 @@ class GoodItemsController extends Controller
 {
     public function index()
     {
-        return view('frontend.good-items');
+        $gooditems = \App\Models\Gooditem::orderBy('created_at', 'desc')->paginate(5);
+        return view('frontend.good-items', compact('gooditems'));
     }
+
+    
 }

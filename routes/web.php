@@ -44,7 +44,7 @@ Route::get('/image-grid', [\App\Http\Controllers\Frontend\StoreController::class
 // front korean article route
 Route::get('/korean-article', [KoreanArticleController::class, 'koreanArticle'])->name('korean-article');
 
-
+// good items frontend
 Route::get('good-items', [GoodItemsController::class, 'index'])->name('good-items.index');
 
 

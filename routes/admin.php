@@ -7,10 +7,11 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\ProfileController;
-use App\Http\Controllers\Backend\BuildingController;
-use App\Http\Controllers\Backend\KoreanArticleController;
-use App\Http\Controllers\Backend\StoreImageController;
 use App\Http\Controllers\Backend\WebsiteController;
+use App\Http\Controllers\Backend\BuildingController;
+use App\Http\Controllers\Backend\GooditemController;
+use App\Http\Controllers\Backend\StoreImageController;
+use App\Http\Controllers\Backend\KoreanArticleController;
 
 // admin dashboard sidebar
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -62,3 +63,8 @@ Route::get('/websites', [WebsiteController::class, 'index'])->name('websites.ind
 Route::get('/websites/create', [WebsiteController::class, 'create'])->name('websites.create'); 
 Route::post('/websites/store', [WebsiteController::class, 'store'])->name('websites.store'); 
 Route::put('/websites/{website}/update', [WebsiteController::class, 'update'])->name('websites.update');
+
+// good items routes
+Route::get('/gooditems', [GooditemController::class, 'index'])->name('gooditems.index');
+Route::get('/gooditems/create', [GooditemController::class, 'create'])->name('gooditems.create');
+Route::post('/gooditems/store', [GooditemController::class, 'store'])->name('gooditems.store');

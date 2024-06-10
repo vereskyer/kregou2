@@ -106,6 +106,17 @@
                                                 value="" name="position" />
                                         </div>
                                     </div>
+
+                                    <div>
+                                        <span class="text-gray-700 dark:text-gray-400">其他說明</span>
+                                        <!-- focus-within sets the color for the icon when input is focused -->
+                                        <div
+                                            class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                            <input
+                                                class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                                value="" name="description" />
+                                        </div>
+                                    </div>
                                 </div>
 
                             </label>

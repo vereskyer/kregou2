@@ -90,6 +90,7 @@ class StoreController extends Controller
         $store->website = $request->website;
         $store->ks_story = $request->ks_story;
         $store->price = $request->price;
+        $store->description= $request->description;
 
         // dd($store);
         $store->save();

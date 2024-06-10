@@ -114,7 +114,7 @@ class StoreController extends Controller
         // 按照 created_at 时间倒序排列
         $query->orderBy('created_at', 'desc');
 
-        $storeImages = $query->paginate(10);
+        $storeImages = $query->paginate(9);
 
         return view('frontend.store-images', compact('storeImages'));
     }

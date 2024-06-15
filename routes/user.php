@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Frontend\WordController;
 use App\Http\Controllers\Frontend\StoreController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Frontend\SiteorderController;
 
 // user dashboard sidebar
 Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
@@ -51,3 +52,10 @@ Route::post('wallet/recharge', [WalletController::class, 'recharge'])->name('wal
 // fullcalender
 Route::get('calendar-event', [CalenderController::class, 'index']);
 Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
+
+//site order routes
+Route::get('/siteorder', [SiteorderController::class, 'index'])->name('siteorder');
+Route::get('/siteorder/create', [SiteorderController::class, 'create'])->name('siteorder.create');
+Route::post('/siteorder/store', [SiteorderController::class, 'store'])->name('siteorder.store');
+// ckeditor image upload
+Route::post('/siteorder/upload', [SiteorderController::class, 'upload'])->name('siteorder.ckeditor.upload');

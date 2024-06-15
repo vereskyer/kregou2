@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Shoporder;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShoporderController;
 use App\Http\Controllers\Backend\UserController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\WebsiteController;
 use App\Http\Controllers\Backend\BuildingController;
 use App\Http\Controllers\Backend\GooditemController;
+use App\Http\Controllers\Backend\SiteorderController;
 use App\Http\Controllers\Backend\StoreImageController;
 use App\Http\Controllers\Backend\KoreanArticleController;
 
@@ -70,3 +72,10 @@ Route::get('/gooditems/create', [GooditemController::class, 'create'])->name('go
 Route::post('/gooditems/store', [GooditemController::class, 'store'])->name('gooditems.store');
 // ckeditor image upload
 Route::post('/gooditems/upload', [GooditemController::class, 'upload'])->name('ckeditor.upload');
+
+// site orders routes
+Route::get('/siteorder', [SiteorderController::class, 'index'])->name('siteorder.index');
+Route::get('/siteorder/{id}/edit', [SiteorderController::class, 'edit'])->name('siteorder.edit');
+// Route::post('/siteorder/store', [SiteorderController::class, 'store'])->name('siteorder.store');
+Route::post('/siteorder/{id}/update', [SiteorderController::class, 'update'])->name('siteorder.update');
+

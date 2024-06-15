@@ -9,9 +9,7 @@ use App\Http\Controllers\Backend\KoreanArticleController;
 use App\Http\Controllers\Frontend\StoreController as FrontendStoreController;
 use App\Http\Controllers\QuestionController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [GoodItemsController::class, 'homeWelcome'])->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

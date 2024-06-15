@@ -19,5 +19,11 @@ class GoodItemsController extends Controller
         return view('gooditems.show', compact('gooditem'));
     }
 
+    public function homeWelcome()
+    {
+        $gooditems = \App\Models\Gooditem::orderBy('created_at', 'desc')->paginate(12);
+        return view('welcome', compact('gooditems'));
+    }
+
     
 }

@@ -49,6 +49,16 @@
                                 @endif
 
                             </div>
+                            <div class="mt-3 sm:mt-0 sm:ml-3">
+                                @if ($gooditem->detail_description)
+                                    <a href="{{ route('good-items.show', $gooditem->id) }}" target="_blank"
+                                        class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-800 bg-blue-200 hover:bg-indigo-500 md:py-4 md:text-lg md:px-10">
+                                        詳細介紹
+                                    </a>
+                                @endif
+
+                            </div>
+
                             {{-- <div class="mt-3 sm:mt-0 sm:ml-3">
                                 <!-- Open the modal using ID.showModal() method -->
                                 <button

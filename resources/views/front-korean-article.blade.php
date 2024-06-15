@@ -1,5 +1,6 @@
-@include('layouts.header')
+@extends('layouts.header')
 
+@section('content')
 <main class="mt-6">
     @foreach ($articles as $article)
         <div class="card card-side bg-base-100 shadow-xl mt-3">
@@ -22,4 +23,4 @@
 
 </main>
 
-@include('layouts.footer')
+@endsection

@@ -68,3 +68,5 @@ Route::put('/websites/{website}/update', [WebsiteController::class, 'update'])->
 Route::get('/gooditems', [GooditemController::class, 'index'])->name('gooditems.index');
 Route::get('/gooditems/create', [GooditemController::class, 'create'])->name('gooditems.create');
 Route::post('/gooditems/store', [GooditemController::class, 'store'])->name('gooditems.store');
+// ckeditor image upload
+Route::post('/gooditems/upload', [GooditemController::class, 'upload'])->name('ckeditor.upload');

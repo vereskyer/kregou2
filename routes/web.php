@@ -46,6 +46,9 @@ Route::get('/korean-article', [KoreanArticleController::class, 'koreanArticle'])
 
 // good items frontend
 Route::get('good-items', [GoodItemsController::class, 'index'])->name('good-items.index');
+// good items show detail page
+Route::get('/good-items/{gooditem}', [\App\Http\Controllers\Frontend\GoodItemsController::class, 'show'])->name('good-items.show');
+
 
 
 // storepayment route
@@ -85,3 +88,4 @@ Route::get('websites', [\App\Http\Controllers\Backend\WebsiteController::class, 
 Route::get('hanguodaigou', function () {
     return view('frontend.hanguodaigou');
 })->name('hanguodaigou');
+

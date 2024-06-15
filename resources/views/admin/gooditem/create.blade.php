@@ -1,6 +1,17 @@
 @extends('admin.layouts.master')
 
+@section('head')
+<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+<style type="text/css">
+    .ck-editor__editable_inline {
+        height: 450px;
+    }
+</style>
+
+@endsection
+
 @section('content')
+
     <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
         <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
             <div class="flex flex-col overflow-y-auto md:flex-row">
@@ -43,14 +54,13 @@
                             <label class="block text-sm  mt-4">
 
                                 <div>
-                                    <span class="text-gray-700 dark:text-gray-400">content</span>
+                                    <span class="text-gray-700 dark:text-gray-400">簡介</span>
                                     <!-- focus-within sets the color for the icon when input is focused -->
                                     <div
                                         class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
                                         <textarea
                                             class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                                            value="" name="content" rows="5">
-
+                                            value="" name="content" rows="3">
                                         </textarea>
                                     </div>
                                 </div>
@@ -59,7 +69,22 @@
                             <label class="block text-sm  mt-4">
 
                                 <div>
-                                    <span class="text-gray-700 dark:text-gray-400">Url</span>
+                                    <span class="text-gray-700 dark:text-gray-400">詳細介紹</span>
+                                    <!-- focus-within sets the color for the icon when input is focused -->
+                                    <div
+                                        class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <textarea
+                                            class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                            value="" name="detail_description" rows="5" id="editor">
+                                        </textarea>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="block text-sm  mt-4">
+
+                                <div>
+                                    <span class="text-gray-700 dark:text-gray-400">官網 Url</span>
                                     <!-- focus-within sets the color for the icon when input is focused -->
                                     <div
                                         class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
@@ -99,6 +124,20 @@
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        <script>
+            ClassicEditor
+                .create( document.querySelector( '#editor' ), {
+                    ckfinder: {
+                        uploadUrl:"{{ route('admin.ckeditor.upload', ['_token' => csrf_token() ]) }}",
+                    }
+                })
+                .catch( error => {
+                    console.error( error );
+                } );
+        </script>
+        
+
 
     </div>
 @endsection

@@ -1,4 +1,6 @@
-@include('layouts.header')
+@extends('layouts.header')
+
+@section('content')
 
 <main class="h-full pb-16 overflow-y-auto">
     <div class="container grid px-6 mx-auto">
@@ -74,4 +76,4 @@
     </div>
 </main>
 
-@include('layouts.footer')
+@endsection

@@ -13,6 +13,14 @@
 
         @foreach ($gooditems as $gooditem)
             <section class="sm:mt-5 lg:mt-5 mt-5 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border border-gray-300">
+                @if ($gooditem->url)
+                    <div class="mt-10 flex justify-center items-center h-full">
+                        <a href="{{ route('user.siteorder.create') }}"
+                            class="btn btn-outline btn-secondary w-1/2 flex items-center justify-center">
+                            提交韓國網站代購表單，韓國零售網站均可代購
+                        </a>
+                    </div>
+                @endif
                 <div
                     class="my-10 mx-auto max-w-7xl px-4 sm:mt-5 sm:px-6 md:mt-5 lg:mt-5 lg:px-8 xl:mt-5 flex gap-3 lg:flex-justify lg:flex flex-col lg:flex-row">
                     <!-- Image Section -->
@@ -40,6 +48,7 @@
                                     </a>
                                 @endif
                             </div>
+
                             <div class="mt-3 sm:mt-0 sm:ml-3">
                                 @if ($gooditem->buy_url)
                                     <a href="{{ $gooditem->buy_url }}" target="_blank"
@@ -82,10 +91,8 @@
                     </div>
                 </div>
 
-                
-            </section>
 
-            
+            </section>
         @endforeach
         <div class="mt-5" id="pagination">
             {{ $gooditems->links() }}

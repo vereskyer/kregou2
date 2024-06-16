@@ -34,7 +34,7 @@ class WebsiteController extends Controller
 
     public function showWebsiteFrontend()
     {
-        $websites = Website::orderBy('created_at', 'desc')->paginate(30);
+        $websites = Website::orderBy('created_at', 'desc')->paginate(12);
         return view('frontend.show-websites-frontend', compact('websites'));
     }   
 }

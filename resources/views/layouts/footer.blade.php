@@ -17,8 +17,9 @@
             <div class="p-5">
                 <div class="text-sm uppercase text-indigo-600 font-bold">Support</div>
                 <a class="my-3 block" href="{{ route('websites.frontend') }}">韓國網站導航 <span
-                        class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">韓國EMS價格 <span
                         class="text-teal-600 text-xs p-1"></span></a>
+                        <a class="my-3 block" href="korean-ems">韓國EMS價格 
+                            <span class="text-teal-600 text-xs p-1"></span></a>
             </div>
             <div class="p-5">
                 <div class="text-sm uppercase text-indigo-600 font-bold">Contact us</div>

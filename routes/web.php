@@ -87,3 +87,8 @@ Route::get('hanguodaigou', function () {
     return view('frontend.hanguodaigou');
 })->name('hanguodaigou');
 
+// 韓國ems
+Route::get('korean-ems', function () {
+    return view('frontend.ems');
+})->name('korean-ems');
+

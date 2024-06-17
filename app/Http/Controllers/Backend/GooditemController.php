@@ -12,7 +12,7 @@ class GooditemController extends Controller
 
     public function index()
     {
-        $gooditems = \App\Models\Gooditem::paginate(10);
+        $gooditems = \App\Models\Gooditem::orderBy('id', 'desc')->paginate(10);
         return view('admin.gooditem.index', compact('gooditems'));
     }
 

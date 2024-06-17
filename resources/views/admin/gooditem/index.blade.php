@@ -1,5 +1,9 @@
 @extends('admin.layouts.master')
 
+@section('head')
+
+@endsection
+
 @section('content')
     <main class="h-full pb-16 overflow-y-auto">
         <div class="container grid px-6 mx-auto">
@@ -32,8 +36,11 @@
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                             @forelse ($gooditems as $gooditem)
                                 <tr class="text-gray-700 dark:text-gray-400">
-                                    <td class="px-4 py-3 text-xs">
-                                        <img src="{{ asset($gooditem->image) }}" alt="" class="w-24 h-24">
+                                    <td class="px-4 py-3 text-xs w-60 flex">
+                                        <div class="h-min overflow-hidden rounded-md">
+                                            <img src="{{ asset($gooditem->image) }}" alt="" 
+                                                class="h-60 w-80 hover:scale-150 image-large transition-all duration-500 cursor-pointer">
+                                        </div>
                                     </td>
                                     <td class="px-4 py-3 text-sm">{{ $gooditem->title }}</td>
                                     <td class="px-4 py-3 text-sm">{{ $gooditem->content }}</td>

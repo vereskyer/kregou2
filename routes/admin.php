@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\WebsiteController;
+use App\Http\Controllers\Backend\BandsaleController;
 use App\Http\Controllers\Backend\BuildingController;
 use App\Http\Controllers\Backend\GooditemController;
 use App\Http\Controllers\Backend\SiteorderController;
@@ -79,3 +80,7 @@ Route::get('/siteorder/{id}/edit', [SiteorderController::class, 'edit'])->name('
 // Route::post('/siteorder/store', [SiteorderController::class, 'store'])->name('siteorder.store');
 Route::post('/siteorder/{id}/update', [SiteorderController::class, 'update'])->name('siteorder.update');
 
+// bandsales routes
+Route::get('/bandsales', [BandsaleController::class, 'index'])->name('bandsales.index');
+Route::get('/bandsales/create', [BandsaleController::class, 'create'])->name('bandsales.create');
+Route::post('/bandsales/store', [BandsaleController::class, 'store'])->name('bandsales.store');

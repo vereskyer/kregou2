@@ -1,19 +1,21 @@
 <?php
 
+use App\Models\Bandsale;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\KoreanController;
+use App\Http\Controllers\Frontend\BandsaleController;
 use App\Http\Controllers\Frontend\GoodItemsController;
 use App\Http\Controllers\Backend\KoreanArticleController;
 use App\Http\Controllers\Frontend\StoreController as FrontendStoreController;
-use App\Http\Controllers\QuestionController;
 
 Route::get('/', [GoodItemsController::class, 'homeWelcome'])->name('welcome');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -47,7 +49,11 @@ Route::get('good-items', [GoodItemsController::class, 'index'])->name('good-item
 // good items show detail page
 Route::get('/good-items/{gooditem}', [\App\Http\Controllers\Frontend\GoodItemsController::class, 'show'])->name('good-items.show');
 
-
+// band sales frontend
+Route::get('band-sales', [BandsaleController::class, 'index'])->name('band-sales.index');
+// band sales show detail page
+Route::get('/band-sales/{bandsale}', [BandsaleController::class, 'show'])
+    ->middleware('auth', 'roles:bandsale')->name('band-sales.show');
 
 // storepayment route
 Route::get('/front-stores', [\App\Http\Controllers\Frontend\StoreController::class, 'index'])

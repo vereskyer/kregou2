@@ -9,5 +9,5 @@ class Bandsale extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'image', 'url', 'description', 'admin_url'];
+    protected $fillable = ['title', 'image', 'url', 'description', 'admin_url', 'wholesale_condition'];
 }

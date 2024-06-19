@@ -19,7 +19,7 @@
                 <div class="flex items-center justify-center flex-1">
                     <div class="w-full p-6">
                         <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
-                            添加新的 Good Item
+                            添加新的 band 特價
                         </h1>
 
                         {{-- update profile  --}}
@@ -46,6 +46,20 @@
                                         <input
                                             class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
                                             value="" name="title" />
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="block text-sm  mt-4">
+                                <div>
+                                    <span class="text-gray-700 dark:text-gray-400">批發說明</span>
+                                    <!-- focus-within sets the color for the icon when input is focused -->
+                                    <div
+                                        class="relative text-gray-500 focus-within:text-purple-600 dark:focus-within:text-purple-400">
+                                        <textarea
+                                            class="block w-full mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                                            value="" name="wholesale_condition" rows="5">
+                                    </textarea>
                                     </div>
                                 </div>
                             </label>

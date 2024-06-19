@@ -27,6 +27,7 @@ class BandsaleController extends Controller
         $request->validate([
             'title' => 'required|max:100',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'wholesale_condition' => 'required',
             'description' => 'required',
             'url' => 'nullable',
             'admin_url' => 'nullable',
@@ -40,6 +41,7 @@ class BandsaleController extends Controller
             $bandsale->image = $image;
         }
         $bandsale->title = $request->title;
+        $bandsale->wholesale_condition = $request->wholesale_condition;
         $bandsale->description = $request->description;
         $bandsale->url = $request->url;
         $bandsale->admin_url = $request->admin_url;

@@ -35,7 +35,7 @@ trait ImageUploadTrait
 
             $image = $request->{$inputName};
             $ext = $image->getClientOriginalExtension();
-            $imageName = 'hanguodaigou_' . uniqid() . '.' . $ext;
+            $imageName = '韓國代購_' . uniqid() . '.' . $ext;
             $image->move(public_path($path), $imageName);
 
             return $path . '/' . $imageName;
@@ -69,7 +69,7 @@ trait ImageUploadTrait
             foreach ($images as $image) {
 
                 $ext = $image->getClientOriginalExtension();
-                $imageName = 'hanguodaigou_' . uniqid() . '.' . $ext;
+                $imageName = '韓國代購_' . uniqid() . '.' . $ext;
 
                 // 创建带有日期的文件夹（如果不存在）
                 if (!file_exists(public_path($pathWithDate))) {

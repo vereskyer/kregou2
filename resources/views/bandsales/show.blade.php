@@ -32,9 +32,15 @@
                 <!-- Featured image -->
                 <img src="{{ asset($bandsale->image) }}" alt="Featured image" class="w-full h-auto mb-8 items-center">
 
+                <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">
+                   <p class="text-gray-500 text-large mb-4 bg-lime-300 font-bold">
+                    批發說明： {{ $bandsale->wholesale_condition }}
+                   </p>
+                </div>
+
                 <!-- Blog post content -->
                 <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">
-                    {!! $bandsale->detail_description !!}
+                    {!! $bandsale->description !!}
                 </div>
 
     

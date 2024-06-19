@@ -42,7 +42,7 @@
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 text-sm">{{ $bandsale->title }}</td>
-                                    <td class="px-4 py-3 text-sm w-60">{!! $bandsale->description !!}</td>
+                                    <td class="px-4 py-3 text-sm w-60">{{ $bandsale->wholesale_condition }}</td>
                                     <td class="px-4 py-3 text-sm">
                                         <a href="{{ $bandsale->url }}" target="_blank">{{ $bandsale->url }}</a>
                                     </td>

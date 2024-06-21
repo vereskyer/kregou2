@@ -7,6 +7,7 @@ use App\Http\Controllers\ShoporderController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\StoreController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\WebsiteController;
 use App\Http\Controllers\Backend\BandsaleController;
@@ -84,3 +85,8 @@ Route::post('/siteorder/{id}/update', [SiteorderController::class, 'update'])->n
 Route::get('/bandsales', [BandsaleController::class, 'index'])->name('bandsales.index');
 Route::get('/bandsales/create', [BandsaleController::class, 'create'])->name('bandsales.create');
 Route::post('/bandsales/store', [BandsaleController::class, 'store'])->name('bandsales.store');
+
+// Products routes
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');

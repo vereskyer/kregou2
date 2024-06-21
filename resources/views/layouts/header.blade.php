@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>韓國易購-韓國代購12年-東大門代購|南大門代購|玩具街代購|美妝代購|韓國零食代購|批發-
+    <title>韓國代購-東大門代購|南大門代購|玩具街代購|美妝代購|韓國零食代購|批發-
         @yield('title')</title>
 
     <!-- Fonts -->
@@ -15,6 +15,7 @@
     <!-- Styles -->
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @yield('script')
 </head>
 
 <body class="font-sans antialiased dark:bg-black dark:text-white/50">
@@ -84,16 +85,7 @@
                                             class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
                                             aria-current="page">Home</a>
                                     </li>
-                                    <li>
-                                        <a href="{{ route('korean.index') }}"
-                                            class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
-                                            訂貨輔助韓語</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('front.stores.index') }}"
-                                            class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
-                                            市場檔口列表</a>
-                                    </li>
+                                                                        
                                     <li>
                                         <a href="{{ route('store-images') }}"
                                             class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">

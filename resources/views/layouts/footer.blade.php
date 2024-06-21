@@ -1,5 +1,5 @@
 <footer class="bg-sky-400 rounded-lg mt-10 mb-5">
-    
+
 
     <div class="">
         <div class="max-w-screen-lg px-4 sm:px-6 text-gray-800 sm:grid md:grid-cols-4 sm:grid-cols-2 mx-auto">
@@ -8,18 +8,33 @@
             </div>
             <div class="p-5">
                 <div class="text-sm uppercase text-indigo-600 font-bold">東大門代購</div>
-                <a class="my-3 block" href="{{ route('hanguodaigou') }}">韓國代購簡介 <span
-                        class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block"
-                    href="{{ route('dongdaemun-pickup') }}">東大門市場取貨說明 <span
-                        class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block"
-                    href="{{ route('all-buildings') }}">韓國批發大樓 <span class="text-teal-600 text-xs p-1">New</span></a>
+                <a class="my-3 block" href="{{ route('hanguodaigou') }}">
+                    韓國代購簡介 <span class="text-teal-600 text-xs p-1"></span>
+                </a>
+                <a class="my-3 block" href="{{ route('dongdaemun-pickup') }}">
+                    東大門市場取貨說明 <span class="text-teal-600 text-xs p-1"></span>
+                </a>
+                <a class="my-3 block" href="{{ route('all-buildings') }}">
+                    韓國批發大樓 <span class="text-teal-600 text-xs p-1">New</span>
+                </a>
+                <a class="my-3 block" href="{{ route('front.stores.index') }}">
+                    市場檔口列表 <span class="text-teal-600 text-xs p-1">New</span>
+                </a>
             </div>
             <div class="p-5">
                 <div class="text-sm uppercase text-indigo-600 font-bold">Support</div>
-                <a class="my-3 block" href="{{ route('websites.frontend') }}">韓國網站導航 <span
-                        class="text-teal-600 text-xs p-1"></span></a>
-                        <a class="my-3 block" href="korean-ems">韓國EMS價格 
-                            <span class="text-teal-600 text-xs p-1"></span></a>
+                <a class="my-3 block" href="{{ route('websites.frontend') }}">
+                    韓國網站導航 <span class="text-teal-600 text-xs p-1"></span>
+                </a>
+                <a class="my-3 block" href="taiwan-hongkong-freight">
+                    臺灣/香港運費 <span class="text-teal-600 text-xs p-1"></span>
+                </a>
+                <a class="my-3 block" href="korean-ems">
+                    韓國EMS價格 <span class="text-teal-600 text-xs p-1"></span>
+                </a>
+                <a class="my-3 block" href="{{ route('korean.index') }}">
+                    訂貨輔助韓語 <span class="text-teal-600 text-xs p-1"></span>
+                </a>
             </div>
             <div class="p-5">
                 <div class="text-sm uppercase text-indigo-600 font-bold">Contact us</div>

@@ -98,3 +98,8 @@ Route::get('korean-ems', function () {
     return view('frontend.ems');
 })->name('korean-ems');
 
+// 韓國->臺灣/香港->空運/海運
+Route::get('taiwan-hongkong-freight', function () {
+    return view('frontend.taiwan-hongkong');
+})->name('taiwan-hongkong-freight');
+

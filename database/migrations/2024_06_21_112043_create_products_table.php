@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('name');
             $table->string('korean_name')->nullable();
+            $table->string('specification')->nullable();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->longText('description')->nullable();
             $table->integer('wholesale_price');

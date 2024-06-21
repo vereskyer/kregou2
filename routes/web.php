@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\KoreanController;
+use App\Http\Controllers\Frontend\ProductController;
 use App\Http\Controllers\Frontend\BandsaleController;
 use App\Http\Controllers\Frontend\GoodItemsController;
 use App\Http\Controllers\Backend\KoreanArticleController;
@@ -103,3 +104,5 @@ Route::get('taiwan-hongkong-freight', function () {
     return view('frontend.taiwan-hongkong');
 })->name('taiwan-hongkong-freight');
 
+// products routes
+Route::get('all-products', [ProductController::class, 'index'])->name('products.index');

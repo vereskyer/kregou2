@@ -45,6 +45,7 @@ class ProductController extends Controller
         }
         $product->name = $request->name;
         $product->korean_name = $request->korean_name;
+        $product->specification = $request->specification;
         $product->category_id = $request->category_id;
         $product->wholesale_price = $request->wholesale_price;
         $product->supply_price = $request->supply_price;

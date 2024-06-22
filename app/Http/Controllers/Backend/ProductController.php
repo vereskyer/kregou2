@@ -32,6 +32,7 @@ class ProductController extends Controller
             'name' => 'required|max:100',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'wholesale_price' => 'required',
+            'specification' => 'nullable',
             'url' => 'nullable',
             'buy_url' => 'nullable',
         ]);

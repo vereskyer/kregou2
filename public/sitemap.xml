@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    <url>
+        <loc>http://127.0.0.1:8000/_ignition/health-check</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/profile</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/register</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/login</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/forgot-password</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/reset-password/{token}</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/verify-email</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/verify-email/{id}/{hash}</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/confirm-password</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/korean</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/korean/show</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/AGWcvMZ/search</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/image-gallery</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/image-grid</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/korean-article</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/good-items</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/good-items/{gooditem}</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/band-sales</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/band-sales/{bandsale}</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/front-stores</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/store/{id}/payment</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/questions</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/questions/create</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/questions/{question}</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/questions/{question}/edit</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/components</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/all-stores</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/all-buildings</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/store-images</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/dongdaemun-pickup</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/websites</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/hanguodaigou</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/korean-ems</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/taiwan-hongkong-freight</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/all-products</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/products/{product}</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/cart</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/cart/{product}</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/sitemap</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/dashboard</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/forms</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/buttons</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/cards</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/charts</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/modals</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/tables</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/store</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/store/create</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/store/{store}</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/store/{store}/edit</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/profile</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/shoporder</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/shoporder/{shoporder}/edit</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/articles</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/articles/create</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/users</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/users/create</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/users/{id}/edit</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/buildings</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/buildings/{id}/edit</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/websites</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/websites/create</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/gooditems</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/gooditems/create</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/siteorder</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/siteorder/{id}/edit</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/bandsales</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/bandsales/create</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/products</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/products/create</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/orders</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/orders/{order}</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/orders/{order}/preview</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/dashboard</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/profile</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/shoporder</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/shoporder/create</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/namecard</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/korean</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/text</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/words</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/my-stores</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/answers/{answer}</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/calendar-event</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/siteorder</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/siteorder/create</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/orders</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/user/orders/{order}</loc>
+    
+            </url>
+</urlset>

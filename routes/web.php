@@ -12,6 +12,8 @@ use App\Http\Controllers\Frontend\BandsaleController;
 use App\Http\Controllers\Frontend\GoodItemsController;
 use App\Http\Controllers\Backend\KoreanArticleController;
 use App\Http\Controllers\Frontend\StoreController as FrontendStoreController;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 
 Route::get('/', [GoodItemsController::class, 'homeWelcome'])->name('welcome');
 
@@ -121,3 +123,23 @@ Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remov
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 
 Route::post('/cart/submit-order', [CartController::class, 'submitOrder'])->name('cart.submit-order');
+
+
+
+Route::get('/sitemap', function () {
+    $sitemap = Sitemap::create();
+
+    // 获取所有 GET 路由
+    $routes = Route::getRoutes();
+
+    foreach ($routes as $route) {
+        if ($route->methods()[0] === 'GET' && !in_array('admin', $route->middleware())) {
+            $sitemap->add(Url::create($route->uri())->setPriority(0.8));
+        }
+    }
+
+    $sitemap->writeToFile(public_path('sitemap.xml'));
+
+    return 'Sitemap generated!';
+});
+

@@ -27,7 +27,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->name('admin.')
                 ->group(base_path('routes/admin.php'));
 
-                Route::middleware(['web', 'auth', 'roles:user, vipstore'])
+            Route::middleware(['web', 'auth', 'roles:user, vipstore'])
                 ->prefix('user')
                 ->name('user.')
                 ->group(base_path('routes/user.php'));
@@ -35,7 +35,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-          'roles' => RoleMiddleware::class,
+            'roles' => RoleMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
@@ -43,4 +43,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->renderable(function (NotFoundHttpException $e, $request) {
             return redirect('/');
         });
-    })->create();
+    })
+    ->withSchedule(function ($schedule) {
+        $schedule->command('sitemap:generate')->daily();
+    })
+    ->create();

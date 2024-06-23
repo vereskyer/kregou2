@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\Backend\StoreController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Backend\KoreanController;
 use App\Http\Controllers\Frontend\ProductController;
 use App\Http\Controllers\Frontend\BandsaleController;
@@ -107,3 +108,13 @@ Route::get('taiwan-hongkong-freight', function () {
 // products routes
 Route::get('all-products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
+
+// cart routes
+Route::get('cart', [CartController::class, 'index'])->name('cart.index');
+Route::get('cart/{product}', [CartController::class, 'addToCart'])->name('cart.add');
+// Route::post('cart/{product}', [CartController::class, 'update'])->name('cart.update');
+// Route::delete('cart/{product}', [CartController::class, 'remove'])->name('cart.remove');
+// Route::post('cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+// Route::get('cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+
+Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');

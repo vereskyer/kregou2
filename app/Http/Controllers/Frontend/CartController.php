@@ -60,4 +60,28 @@ class CartController extends Controller
         }
         return $total;
     }
+
+    public function update(Request $request)
+    {
+        $id = $request->input('id');
+        $quantity = max(1, intval($request->input('quantity'))); // 确保数量至少为1
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity'] = $quantity;
+            session()->put('cart', $cart);
+        }
+
+        $total = $this->calculateTotal($cart);
+        $itemPrice = isset($cart[$id]) ? (float)$cart[$id]['price'] : 0;
+        $itemSubtotal = $quantity * $itemPrice;
+
+        return response()->json([
+            'success' => true,
+            'quantity' => $quantity,
+            'price' => $itemPrice,
+            'subtotal' => $itemSubtotal,
+            'total' => $total
+        ]);
+    }
 }

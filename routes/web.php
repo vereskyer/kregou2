@@ -118,3 +118,4 @@ Route::get('cart/{product}', [CartController::class, 'addToCart'])->name('cart.a
 // Route::get('cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\Product;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Services\OrderService;
+
 
 class CartController extends Controller
 {
@@ -83,5 +87,38 @@ class CartController extends Controller
             'subtotal' => $itemSubtotal,
             'total' => $total
         ]);
+    }
+
+
+    public function submitOrder(Request $request)
+    {
+        $cart = session()->get('cart', []);
+        if (empty($cart)) {
+            return redirect()->back()->with('error', '購物車是空的');
+        }
+
+        $user = auth()->user();
+        $orderService = new OrderService();
+        $orderNumber = $orderService->generateOrderNumber($user);
+
+        $order = Order::create([
+            'user_id' => $user->id,
+            'total_amount' => $this->calculateTotal($cart),
+            'status' => 'pending',
+            'order_number' => $orderNumber,
+        ]);
+
+        foreach ($cart as $id => $item) {
+            OrderItem::create([
+                'order_id' => $order->id,
+                'product_id' => $id,
+                'quantity' => $item['quantity'],
+                'price' => $item['price'],
+            ]);
+        }
+
+        session()->forget('cart');
+
+        return redirect()->route('user.orders')->with('success', '訂單已提交，訂單號為：' . $orderNumber);
     }
 }

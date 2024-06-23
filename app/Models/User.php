@@ -86,5 +86,10 @@ class User extends Authenticatable implements Customer
         $role = Role::where('name', $role)->firstOrFail();
         $this->roles()->detach($role);
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
   
 }

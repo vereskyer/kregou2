@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\WordController;
 use App\Http\Controllers\Frontend\StoreController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Frontend\SiteorderController;
+use App\Http\Controllers\Frontend\UserOrderController;
 
 // user dashboard sidebar
 Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
@@ -59,3 +60,7 @@ Route::get('/siteorder/create', [SiteorderController::class, 'create'])->name('s
 Route::post('/siteorder/store', [SiteorderController::class, 'store'])->name('siteorder.store');
 // ckeditor image upload
 Route::post('/siteorder/upload', [SiteorderController::class, 'upload'])->name('siteorder.ckeditor.upload');
+
+// cart routes
+Route::get('/orders', [UserOrderController::class, 'index'])->name('orders');
+Route::get('/orders/{order}', [UserOrderController::class, 'show'])->name('orders.show');

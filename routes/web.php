@@ -119,3 +119,5 @@ Route::get('cart/{product}', [CartController::class, 'addToCart'])->name('cart.a
 
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
+
+Route::post('/cart/submit-order', [CartController::class, 'submitOrder'])->name('cart.submit-order');

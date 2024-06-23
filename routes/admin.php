@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\BandsaleController;
 use App\Http\Controllers\Backend\BuildingController;
 use App\Http\Controllers\Backend\GooditemController;
 use App\Http\Controllers\Backend\SiteorderController;
+use App\Http\Controllers\Backend\AdminOrderController;
 use App\Http\Controllers\Backend\StoreImageController;
 use App\Http\Controllers\Backend\KoreanArticleController;
 
@@ -64,8 +65,8 @@ Route::put('/buildings/{id}/update', [BuildingController::class, 'update'])->nam
 
 // website routes
 Route::get('/websites', [WebsiteController::class, 'index'])->name('websites.index');
-Route::get('/websites/create', [WebsiteController::class, 'create'])->name('websites.create'); 
-Route::post('/websites/store', [WebsiteController::class, 'store'])->name('websites.store'); 
+Route::get('/websites/create', [WebsiteController::class, 'create'])->name('websites.create');
+Route::post('/websites/store', [WebsiteController::class, 'store'])->name('websites.store');
 Route::put('/websites/{website}/update', [WebsiteController::class, 'update'])->name('websites.update');
 
 // good items routes
@@ -90,3 +91,9 @@ Route::post('/bandsales/store', [BandsaleController::class, 'store'])->name('ban
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
+
+// cart routes
+Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/{order}', [AdminOrderController::class, 'show'])->name('orders.show');
+Route::put('/orders/{order}', [AdminOrderController::class, 'update'])->name('orders.update');
+Route::get('/orders/{order}/preview', [AdminOrderController::class, 'getOrderDetails'])->name('orders.preview');

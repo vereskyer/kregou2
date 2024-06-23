@@ -66,7 +66,10 @@
         </div>
 
         <div class="flex justify-end items-center mt-8">
-            <button class="btn btn-primary">提交訂單</button>
+            <form action="{{ route('cart.submit-order') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-primary">提交訂單</button>
+            </form>
         </div>
     </div>
     <script type="text/javascript">

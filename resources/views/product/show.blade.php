@@ -1,6 +1,6 @@
 @extends('layouts.header')
 
-@section('title', '韓國代購商品')
+@section('title', "{{ $product->name }}")
 
 @section('content')
 
@@ -50,7 +50,8 @@
                                 </div>
                             @else
                                 <div class="mr-4">
-                                    <span class="text-2xl font-bold text-indigo-600 dark:text-white mb-2"> 價格請登陸查看</span>
+                                    <span class="text-2xl font-bold text-indigo-600 dark:text-white mb-2">
+                                        <a href="{{ route('login') }}">價格請登陸查看</a></span>
                                 </div>
                             @endauth
 

@@ -20,7 +20,7 @@
                         <h1 class="text-3xl my-5">{{ $product->name }}</h1>
                         <p class="mb-5">{{ $product->korean_name }}</p>
                         @if ($product->specification)
-                            <p class="mb-5 bg-lime-300">{{ $product->specification }} 入</p>
+                            <p class="mb-5 bg-lime-300">{{ $product->specification }}</p>
                         @endif
                         <h2 class="font-semibold mb-5">
                             ₩ {{ number_format($product->wholesale_price, 0, '.', ',') }}

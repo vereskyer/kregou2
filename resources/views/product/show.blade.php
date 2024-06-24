@@ -33,7 +33,7 @@
                     <div class="flex flex-col justify-center h-full"> <!-- 添加此 div 来居中内容 -->
                         <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">{{ $product->name }}
                             @if ($product->specification)
-                                <span class="text-gray-600 dark:text-gray-300 text-sm"> {{ $product->specification }} 入 </span>
+                                <span class="text-gray-600 dark:text-gray-300 text-sm"> {{ $product->specification }} </span>
                             @endif
                         </h2>
                         @if ($product->korean_name)
@@ -55,13 +55,13 @@
                                     to Cart</a>
                             </div>
                         </div>
-                        <div class="flex -mx-2 mb-4">
+                        {{-- <div class="flex -mx-2 mb-4">
                             <div class="w-1/2 px-2">
                                 <button
                                     class="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">Add
                                     to Wishlist</button>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

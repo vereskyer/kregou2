@@ -3,8 +3,6 @@
 @section('title', '韓國代購商品')
 
 @section('content')
-
-
     <section class="container mx-auto p-10 md:py-12 px-0 md:p-8 md:px-0">
         <section
             class="p-5 md:p-0 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-10 items-start">
@@ -22,16 +20,20 @@
                         @if ($product->specification)
                             <p class="mb-5 bg-lime-300">{{ $product->specification }}</p>
                         @endif
-                        <h2 class="font-semibold mb-5">
-                            ₩ {{ number_format($product->wholesale_price, 0, '.', ',') }}
-                        </h2>
+                        @auth
+                            <h2 class="font-semibold mb-5">
+                                ₩ {{ number_format($product->wholesale_price, 0, '.', ',') }}
+                            </h2>
+                        @else
+                            <h2 class="font-semibold mb-5">
+                                價格請登陸查看
+                            </h2>
+                        @endauth
                         {{-- <button class="p-2 px-6 bg-blue-500 text-white rounded-md hover:bg-blue-600">Add To Cart
-
                         </button> --}}
                     </section>
                 </a>
             @endforeach
         </section>
     </section>
-
 @endsection

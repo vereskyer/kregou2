@@ -25,6 +25,20 @@
             </div>
         </div>
         <ul class="flex items-center flex-shrink-0 space-x-6">
+            <div class="inline-flex items-center relative bg-gray-100 mr-5">
+                <a href="{{ route('cart.index') }}"
+                    class="flex items-center rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                    <svg class="h-6 w-6 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span
+                        class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                        {{ count((array) session('cart')) }}
+                    </span>
+                    <span class="ml-2">Cart</span>
+                </a>
+            </div>
             <!-- Theme toggler -->
             <li class="flex">
                 <button class="rounded-md focus:outline-none focus:shadow-outline-purple" @click="toggleTheme"
@@ -40,6 +54,8 @@
                 </button>
 
             </li>
+
+
             <!-- Notifications menu -->
             <li class="relative">
                 <button class="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
@@ -107,7 +123,8 @@
                             <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                                 href="{{ route('user.profile') }}">
                                 <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                    stroke="currentColor">
                                     <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
                                     </path>
                                 </svg>

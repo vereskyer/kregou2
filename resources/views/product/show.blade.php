@@ -33,7 +33,8 @@
                     <div class="flex flex-col justify-center h-full"> <!-- 添加此 div 来居中内容 -->
                         <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">{{ $product->name }}
                             @if ($product->specification)
-                                <span class="text-gray-600 dark:text-gray-300 text-sm"> {{ $product->specification }} </span>
+                                <span class="text-gray-600 dark:text-gray-300 text-sm"> {{ $product->specification }}
+                                </span>
                             @endif
                         </h2>
                         @if ($product->korean_name)
@@ -42,10 +43,17 @@
 
 
                         <div class="flex mb-4">
-                            <div class="mr-4">
-                                <span class="text-2xl font-bold text-indigo-600 dark:text-white mb-2"> ₩
-                                    {{ number_format($product->wholesale_price, 0, '.', ',') }}</span>
-                            </div>
+                            @auth
+                                <div class="mr-4">
+                                    <span class="text-2xl font-bold text-indigo-600 dark:text-white mb-2"> ₩
+                                        {{ number_format($product->wholesale_price, 0, '.', ',') }}</span>
+                                </div>
+                            @else
+                                <div class="mr-4">
+                                    <span class="text-2xl font-bold text-indigo-600 dark:text-white mb-2"> 價格請登陸查看</span>
+                                </div>
+                            @endauth
+
                         </div>
 
                         <div class="flex -mx-2 mb-4">

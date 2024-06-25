@@ -37,10 +37,10 @@
                                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                                     @foreach ($order->items as $item)
                                         <tr class="text-gray-700 dark:text-gray-400">
-                                            <td class="px-4 py-3 text-xs w-60">
+                                            <td class="px-4 py-3 text-xs w-60 flex">
                                                 <img src="{{ asset($item->product->image) }}"
                                                     alt="{{ $item->product->name }}"
-                                                    class="h-20 w-20 object-cover rounded-md">
+                                                    class="h-60 w-60 hover:scale-150 image-large transition-all duration-500 cursor-pointer">
                                             </td>
                                             <td class="px-4 py-3 text-sm">{{ $item->product->name }}</td>
                                             <td class="px-4 py-3 text-sm">₩ {{ number_format($item->price, 0, '.', ',') }}

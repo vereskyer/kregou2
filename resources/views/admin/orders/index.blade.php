@@ -1,135 +1,61 @@
 @extends('admin.layouts.master')
 
-@section('title', '訂單管理')
+@section('head')
+@endsection
 
 @section('content')
-    <div class="container mx-auto px-4 py-8">
-        <h1 class="text-2xl font-bold mb-6">訂單管理</h1>
+    <main class="h-full pb-16 overflow-y-auto">
+        <div class="container grid px-6 mx-auto">
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                本站訂單列表
+            </h2>
 
-        @if ($orders->isEmpty())
-            <p class="text-gray-600">目前沒有任何訂單。</p>
-        @else
-            <div class="overflow-x-auto bg-white shadow-md rounded-lg">
-                <table class="min-w-full leading-normal">
-                    <thead>
-                        <tr>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                訂單號
-                            </th>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                用戶
-                            </th>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                總金額
-                            </th>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                狀態
-                            </th>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                建立日期
-                            </th>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                操作
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($orders as $order)
-                            <tr>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{ $order->order_number }}</p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{ $order->user->name }}</p>
-                                    <p class="text-gray-600 whitespace-no-wrap">{{ $order->user->email }}</p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">₩
-                                        {{ number_format($order->total_amount, 0, '.', ',') }}</p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <span
-                                        class="relative inline-block px-3 py-1 font-semibold 
-                                    {{ $order->status === 'pending'
-                                        ? 'text-yellow-900'
-                                        : ($order->status === 'completed'
-                                            ? 'text-green-900'
-                                            : 'text-red-900') }}
-                                    leading-tight">
-                                        <span aria-hidden
-                                            class="absolute inset-0 
-                                        {{ $order->status === 'pending'
-                                            ? 'bg-yellow-200'
-                                            : ($order->status === 'completed'
-                                                ? 'bg-green-200'
-                                                : 'bg-red-200') }}
-                                        opacity-50 rounded-full"></span>
-                                        <span class="relative">{{ ucfirst($order->status) }}</span>
-                                    </span>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        {{ $order->created_at->format('Y-m-d H:i') }}
-                                    </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <button class="text-green-600 hover:text-green-900 order-details-toggle"
-                                        data-order-id="{{ $order->id }}">預覽</button>
-                                    <a href="{{ route('admin.orders.show', $order) }}"
-                                        class="text-blue-600 hover:text-blue-900 mr-2">訂單詳情</a>
-                                    
-                                </td>
-                            </tr>
-                            <tr id="order-details-{{ $order->id }}" class="hidden bg-gray-50">
-                                <td colspan="6" class="px-5 py-5 border-b border-gray-200">
-                                    <h3 class="font-bold mb-2">訂單內容：</h3>
-                                    @foreach ($order->items as $item)
-                                        <div class="flex items-center space-x-4 mb-2">
-                                            <img src="{{ asset($item->product->image) }}" alt="{{ $item->product->name }}"
-                                                class="w-16 h-16 object-cover rounded">
-                                            <div>
-                                                <p class="font-semibold">{{ $item->product->name }}</p>
-                                                <p class="text-sm text-gray-600">單價：₩
-                                                    {{ number_format($item->price, 0, '.', ',') }}</p>
-                                                <p class="text-sm text-gray-600">數量：{{ $item->quantity }}</p>
+            <div class="mt-6 w-full overflow-hidden rounded-lg shadow-xs">
+                <div class="w-full overflow-x-auto">
+                    @foreach ($orders as $order)
+                        <!-- 訂單信息 -->
+                        <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                            <label class="text-xl alert alert-info">訂單編號: {{ $order->order_number }}</label>
+                            <p class="mt-5"><strong>訂單金額總計：</strong> ₩ {{ number_format($order->total_amount, 0, '.', ',') }}</p>
+                            <p><strong>訂單狀態：</strong> {{ ucfirst($order->status) }}</p>
+                            <p><strong>建立日期：</strong> {{ $order->created_at->format('Y-m-d H:i:s') }}</p>
+                        </div>
+
+                        <!-- 商品信息表格 -->
+                        <table class="w-full whitespace-no-wrap table-auto mb-6">
+                            <thead>
+                                <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                    <th class="px-4 py-3">商品圖片</th>
+                                    <th class="px-4 py-3">商品名稱</th>
+                                    <th class="px-4 py-3">單價</th>
+                                    <th class="px-4 py-3">數量</th>
+                                    <th class="px-4 py-3">合計</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                                @foreach ($order->items as $item)
+                                    <tr class="text-gray-700 dark:text-gray-400">
+                                        <td class="px-4 py-3 text-xs w-60 flex">
+                                            <div class="h-min overflow-hidden rounded-md">
+                                                <img src="{{ asset($item->product->image) }}" alt="" class="h-60 w-80 hover:scale-150 image-large transition-all duration-500 cursor-pointer">
                                             </div>
-                                        </div>
-                                    @endforeach
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">{{ $item->product->name }}</td>
+                                        <td class="px-4 py-3 text-sm">₩ {{ number_format($item->price, 0, '.', ',') }}</td>
+                                        <td class="px-4 py-3 text-sm">{{ $item->quantity }}</td>
+                                        <td class="px-4 py-3 text-sm">₩ {{ number_format($item->price * $item->quantity, 0, '.', ',') }}</td>
+                                        
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endforeach
+                </div>
+                <div>
+                    <!-- Pagination -->
+                    {{ $orders->links() }}
+                </div>
             </div>
-
-            <div class="mt-6">
-                {{ $orders->links() }}
-            </div>
-        @endif
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleButtons = document.querySelectorAll('.order-details-toggle');
-            toggleButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const orderId = this.getAttribute('data-order-id');
-                    const detailsRow = document.getElementById(`order-details-${orderId}`);
-                    if (detailsRow.classList.contains('hidden')) {
-                        detailsRow.classList.remove('hidden');
-                        this.textContent = '隱藏';
-                    } else {
-                        detailsRow.classList.add('hidden');
-                        this.textContent = '預覽';
-                    }
-                });
-            });
-        });
-    </script>
+        </div>
+    </main>
 @endsection

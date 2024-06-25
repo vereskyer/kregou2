@@ -14,7 +14,13 @@ class OrderItem extends Model
         'product_id',
         'quantity',
         'price',
+        'ordered_at', 
+        'arrived_at', 
+        'shipped_at', 
+        'out_of_stock_at'
     ];
+
+    protected $dates = ['ordered_at', 'arrived_at', 'shipped_at', 'out_of_stock_at'];
 
     public function order()
     {

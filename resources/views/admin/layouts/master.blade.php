@@ -44,7 +44,7 @@
             {{-- main end  --}}
         </div>
     </div>
-
+    @stack('scripts')
 </body>
 
 </html>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -10,8 +11,8 @@ class AdminOrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::with('user', 'items')->latest()->paginate(20);
-        
+        $orders = Order::with('user', 'items.product')->latest()->paginate(20);
+
         return view('admin.orders.index', compact('orders'));
     }
 
@@ -38,5 +39,27 @@ class AdminOrderController extends Controller
     {
         $order->load('items.product', 'user');
         return view('admin.orders.preview', compact('order'));
+    }
+
+
+    // app/Http/Controllers/AdminOrderController.php
+
+
+    public function updateOrderItemStatus(Request $request)
+    {
+        $itemId = $request->input('itemId');
+        $statusType = $request->input('statusType');
+        $status = $request->input('status');
+
+        $orderItem = OrderItem::findOrFail($itemId);
+
+        $fieldName = $statusType . '_at';
+        $orderItem->$fieldName = $status ? now() : null;
+        $success = $orderItem->save();
+
+        return response()->json([
+            'success' => $success,
+            'date' => $status ? $orderItem->$fieldName->format('Y-m-d') : null
+        ]);
     }
 }

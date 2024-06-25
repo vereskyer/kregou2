@@ -11,24 +11,42 @@ use App\Models\User;
 
 class OrderService
 {
+
+    // 生成訂單編號
+    // public function generateOrderNumber(User $user)
+    // {
+    //     $userPrefix = strtoupper(substr($user->name, 0, 3));
+        
+    //     do {
+    //         $numberPart = str_pad(mt_rand(1, 999999), 6, '0', STR_PAD_LEFT);
+    //         $orderNumber = $userPrefix . '-' . $numberPart;
+    //     } while (Order::withTrashed()->where('order_number', $orderNumber)->exists());
+
+    //     return $orderNumber;
+    // }
+
+    // 生成訂單編號：AAA-隨機數字-遞增數字。
+
     public function generateOrderNumber(User $user)
     {
-        $lastOrder = Order::where('user_id', $user->id)->latest()->first();
-        $lastOrderNumber = $lastOrder ? $lastOrder->order_number : null;
-        
-        // 使用用户名的前3个字符（如果用户名少于3个字符，则使用全部）
         $userPrefix = strtoupper(substr($user->name, 0, 3));
         
-        if ($lastOrderNumber) {
-            $orderNumberParts = explode('-', $lastOrderNumber);
-            $numberPart = intval($orderNumberParts[1]);
+        $lastOrder = Order::withTrashed()->where('order_number', 'like', $userPrefix . '-%')->latest('id')->first();
+        
+        if ($lastOrder) {
+            $lastNumberParts = explode('-', $lastOrder->order_number);
+            $lastIncrementNumber = intval(end($lastNumberParts));
+            $newIncrementNumber = str_pad($lastIncrementNumber + 1, 2, '0', STR_PAD_LEFT);
         } else {
-            $numberPart = 0;
+            $newIncrementNumber = '01';
         }
         
-        $newNumberPart = str_pad($numberPart + 1, 6, '0', STR_PAD_LEFT);
-        
-        return $userPrefix . '-' . $newNumberPart;
+        do {
+            $randomPart = str_pad(mt_rand(1, 999999), 6, '0', STR_PAD_LEFT);
+            $orderNumber = $userPrefix . '-' . $randomPart . '-' . $newIncrementNumber;
+        } while (Order::withTrashed()->where('order_number', $orderNumber)->exists());
+
+        return $orderNumber;
     }
 }
 

@@ -9,10 +9,10 @@ use App\Http\Controllers\Controller;
 class UserOrderController extends Controller
 {
     public function index()
-{
-    $orders = auth()->user()->orders()->with('items.product')->latest()->paginate(10);
-    return view('user.orders.index', compact('orders'));
-}
+    {
+        $orders = auth()->user()->orders()->with('items.product')->latest()->paginate(10);
+        return view('user.orders.index', compact('orders'));
+    }
 
 
     public function show(Order $order)

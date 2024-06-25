@@ -62,4 +62,14 @@ class AdminOrderController extends Controller
             'date' => $status ? $orderItem->$fieldName->format('Y-m-d') : null
         ]);
     }
+
+    public function destroy(Order $order)
+    {
+        try {
+            $order->delete();
+            return redirect()->route('admin.orders.index')->with('success', '訂單已成功刪除');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', '刪除訂單時發生錯誤：' . $e->getMessage());
+        }
+    }
 }

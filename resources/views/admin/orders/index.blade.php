@@ -44,6 +44,7 @@
                                         <th class="px-4 py-3">已到貨</th>
                                         <th class="px-4 py-3">已發貨</th>
                                         <th class="px-4 py-3">已斷貨</th>
+                                        <th class="px-4 py-3">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -96,6 +97,13 @@
                                                 <span id="out_of_stock_status_{{ $item->id }}">
                                                     {{ $item->out_of_stock_at ? \Carbon\Carbon::parse($item->out_of_stock_at)->format('Y-m-d') : '未斷貨' }}
                                                 </span>
+                                            </td>
+                                            <td>
+                                                <form action="{{ route('admin.orders.destroy', $order) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('確定要刪除這個訂單嗎？')">刪除</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

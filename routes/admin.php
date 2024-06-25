@@ -97,7 +97,10 @@ Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.inde
 Route::get('/orders/{order}', [AdminOrderController::class, 'show'])->name('orders.show');
 Route::put('/orders/{order}', [AdminOrderController::class, 'update'])->name('orders.update');
 Route::get('/orders/{order}/preview', [AdminOrderController::class, 'getOrderDetails'])->name('orders.preview');
+Route::delete('/orders/{order}', [AdminOrderController::class, 'destroy'])->name('orders.destroy');
+
 
 // order items status
 Route::post('/update-order-item-status', [AdminOrderController::class, 'updateOrderItemStatus']);
 // Route::post('/update-order-item-status', [AdminOrderController::class, 'updateOrderItemStatus']);
+

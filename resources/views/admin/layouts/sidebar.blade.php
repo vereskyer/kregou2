@@ -303,6 +303,12 @@
                     </ul>
                 </template>
             </li>
+
+            <li><a href="{{ route('admin.order-items.not-ordered') }}">未訂貨訂單項目</a></li>
+<li><a href="{{ route('admin.order-items.not-arrived') }}">未到貨訂單項目</a></li>
+<li><a href="{{ route('admin.order-items.not-shipped') }}">未發貨訂單項目</a></li>
+<li><a href="{{ route('admin.order-items.out-of-stock') }}">斷貨訂單項目</a></li>
+
         </ul>
         <div class="px-6 my-6">
             <button

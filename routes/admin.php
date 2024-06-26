@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\WebsiteController;
 use App\Http\Controllers\Backend\BandsaleController;
 use App\Http\Controllers\Backend\BuildingController;
 use App\Http\Controllers\Backend\GooditemController;
+use App\Http\Controllers\Backend\OrderItemController;
 use App\Http\Controllers\Backend\SiteorderController;
 use App\Http\Controllers\Backend\AdminOrderController;
 use App\Http\Controllers\Backend\StoreImageController;
@@ -104,3 +105,9 @@ Route::delete('/orders/{order}', [AdminOrderController::class, 'destroy'])->name
 Route::post('/update-order-item-status', [AdminOrderController::class, 'updateOrderItemStatus']);
 // Route::post('/update-order-item-status', [AdminOrderController::class, 'updateOrderItemStatus']);
 
+// order items routes
+Route::get('/order-items', [OrderItemController::class, 'index'])->name('order-items.index');
+Route::get('/order-items/not-ordered', [OrderItemController::class, 'notOrdered'])->name('order-items.not-ordered');
+Route::get('/order-items/not-arrived', [OrderItemController::class, 'notArrived'])->name('order-items.not-arrived');
+Route::get('/order-items/not-shipped', [OrderItemController::class, 'notShipped'])->name('order-items.not-shipped');
+Route::get('/order-items/out-of-stock', [OrderItemController::class, 'outOfStock'])->name('order-items.out-of-stock');

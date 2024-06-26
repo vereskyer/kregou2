@@ -14,9 +14,10 @@
                         @foreach ($orders as $order)
                             <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
                                 <label class="text-xl alert alert-info">訂單編號: {{ $order->order_number }}</label>
-                                <p class="mt-2 text-green-600"><strong>訂單金額總計：</strong> ₩ {{ number_format($order->total_amount, 0, '.', ',') }}</p>
-                                <p class="mt-2 text-green-600"><strong>訂單狀態：</strong> {{ ucfirst($order->status) }}</p>
-                                <p class="mt-2 text-green-600"><strong>建立日期：</strong> {{ $order->created_at->format('Y-m-d H:i:s') }}</p>
+                                <p class="mt-2 text-green-600"><strong>訂單金額總計：</strong> ₩ {{ number_format($order->total_amount, 0, '.', ',') }}
+                                    <span class="ml-5 mt-2 text-green-600"><strong>建立日期：</strong> {{ $order->created_at->format('Y-m-d H:i:s') }}</span>
+                                </p>
+                                {{-- <p class="mt-2 text-green-600"><strong>訂單狀態：</strong> {{ ucfirst($order->status) }}</p> --}}
                             </div>
 
                             <table class="w-full whitespace-no-wrap table-auto mb-6">

@@ -63,6 +63,38 @@ class AdminOrderController extends Controller
         ]);
     }
 
+    public function bulkUpdateOrderItemStatus(Request $request)
+    {
+        $itemIds = $request->input('itemIds');
+        $statusType = $request->input('statusType');
+        $status = $request->input('status');
+
+        $successCount = 0;
+        $date = null;
+
+        foreach ($itemIds as $itemId) {
+            $individualRequest = new Request([
+                'itemId' => $itemId,
+                'statusType' => $statusType,
+                'status' => $status
+            ]);
+
+            $response = $this->updateOrderItemStatus($individualRequest);
+            $result = json_decode($response->getContent(), true);
+
+            if ($result['success']) {
+                $successCount++;
+                $date = $result['date']; // 所有成功更新的項目會有相同的日期
+            }
+        }
+
+        return response()->json([
+            'success' => $successCount > 0,
+            'date' => $date,
+            'message' => "成功更新 {$successCount} 個項目"
+        ]);
+    }
+
     public function destroy(Order $order)
     {
         try {

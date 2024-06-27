@@ -104,7 +104,9 @@ Route::delete('/orders/{order}', [AdminOrderController::class, 'destroy'])->name
 // order items status
 Route::post('/update-order-item-status', [AdminOrderController::class, 'updateOrderItemStatus']);
 // Route::post('/update-order-item-status', [AdminOrderController::class, 'updateOrderItemStatus']);
-
+Route::post('/bulk-update-order-item-status', [AdminOrderController::class, 'bulkUpdateOrderItemStatus'])
+    ->name('bulk-update-order-item-status');
+    
 // order items routes
 Route::get('/order-items', [OrderItemController::class, 'index'])->name('order-items.index');
 Route::get('/order-items/not-ordered', [OrderItemController::class, 'notOrdered'])->name('order-items.not-ordered');

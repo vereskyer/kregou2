@@ -25,18 +25,26 @@
                 @endphp
                 <div class="mt-8 bg-white shadow-md rounded-lg overflow-hidden">
                     <div class="mt-8 bg-white shadow-md rounded-lg overflow-hidden">
-                        <div class="px-4 py-5 border-b border-gray-200 sm:px-6 flex items-center">
-                            <div class="flex-shrink-0 mr-4">
-                                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
-                                    class="h-24 w-24 object-cover rounded-md">
+                        <div class="px-4 py-5 border-b border-gray-200 sm:px-6 flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 mr-4">
+                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
+                                        class="h-24 w-24 object-cover rounded-md">
+                                </div>
+                                <div>
+                                    <h3 class="text-lg leading-6 font-medium text-gray-900">
+                                        商品：{{ $product->name }} (ID: {{ $productId }})
+                                    </h3>
+                                    <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                                        總數量：{{ $totalQuantity }} | 總金額：₩ {{ number_format($totalAmount, 0, '.', ',') }}
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 class="text-lg leading-6 font-medium text-gray-900">
-                                    商品：{{ $product->name }} (ID: {{ $productId }})
-                                </h3>
-                                <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                                    總數量：{{ $totalQuantity }} | 總金額：₩ {{ number_format($totalAmount, 0, '.', ',') }}
-                                </p>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="bulk-order-{{ $productId }}"
+                                    class="w-5 h-5 accent-red-600 bulk-order-checkbox" data-product-id="{{ $productId }}"
+                                    onchange="bulkUpdateOrderStatus(this)">
+                                <label for="bulk-order-{{ $productId }}" class="ml-2 text-sm text-gray-700">批量訂貨</label>
                             </div>
                         </div>
                         <div class="px-4 py-5 sm:p-6">
@@ -81,6 +89,7 @@
                                                 {{-- <input type="checkbox" onchange="updateOrderItemStatus(this)" data-item-id="{{ $item->id }}" data-status="ordered_at"> 標記為已訂貨 --}}
                                                 <input type="checkbox" class="w-5 h-5 accent-red-600 order-item-status"
                                                     data-item-id="{{ $item->id }}" data-status-type="ordered"
+                                                    data-product-id="{{ $productId }}"
                                                     {{ $item->ordered_at ? 'checked' : '' }}
                                                     onchange="updateOrderItemStatus(this)">
                                                 <span id="ordered_status_{{ $item->id }}">
@@ -157,6 +166,62 @@
                 case 'out_of_stock':
                     return '斷貨';
             }
+        }
+
+        function bulkUpdateOrderStatus(checkbox) {
+            const productId = checkbox.dataset.productId;
+            const status = checkbox.checked;
+
+            // 獲取該商品所有未訂貨的訂單項
+            const unorderedItems = document.querySelectorAll(
+                `input[data-status-type="ordered"][data-product-id="${productId}"]:not(:checked)`);
+
+            // 如果沒有未訂貨的項目，直接返回
+            if (unorderedItems.length === 0) {
+                checkbox.checked = false;
+                alert('該商品所有項目已經是訂貨狀態');
+                return;
+            }
+
+            // 確認是否進行批量操作
+            if (!confirm(`確定要將該商品的 ${unorderedItems.length} 個未訂貨項目標記為已訂貨嗎？`)) {
+                checkbox.checked = false;
+                return;
+            }
+
+            // 批量更新
+            const itemIds = Array.from(unorderedItems).map(item => item.dataset.itemId);
+
+            fetch('/admin/bulk-update-order-item-status', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify({
+                        itemIds: itemIds,
+                        statusType: 'ordered',
+                        status: true
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        unorderedItems.forEach(item => {
+                            item.checked = true;
+                            const statusSpan = document.getElementById(`ordered_status_${item.dataset.itemId}`);
+                            statusSpan.textContent = data.date;
+                        });
+                        alert(data.message);
+                    } else {
+                        console.error('批量更新失敗');
+                        checkbox.checked = false;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    checkbox.checked = false;
+                });
         }
     </script>
 @endpush

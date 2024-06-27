@@ -5,24 +5,34 @@
 @section('content')
 
     <div class="bg-gray-100 dark:bg-gray-800 py-8">
-        <nav class="flex" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <nav aria-label="Breadcrumb" role="navigation">
+            <ul class="flex flex-wrap items-center my-1 pt-8">
                 <li class="inline-flex items-center">
-                    <a href="{{ url()->previous() }}"
-                        class="ml-1 inline-flex text-sm font-medium text-gray-800 hover:underline md:ml-2">
-                        <div class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="size-5">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
-                            </svg>
-                            返回上一頁
-                        </div>
+                    <a href="/" aria-label="home" class="inline-flex items-center font-medium text-gray-700">
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z"
+                                clip-rule="evenodd"></path>
+                        </svg>
                     </a>
                 </li>
-            </ol>
+
+                <li class="flex items-center">
+                    <span class="px-1 text-lg text-gray-400">→</span>
+                    <a href="{{ route('products.index') }}" class="font-medium text-gray-700">
+                        所有商品
+                    </a>
+                </li>
+
+                <li class="flex items-center" aria-current="page">
+                    <span class="px-1 text-lg text-gray-400">→</span>
+                    <span class="font-medium text-gray-600">
+                        {{ $product->name }}
+                    </span>
+                </li>
+            </ul>
         </nav>
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mt-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row -mx-4 items-center"> <!-- 添加 items-center -->
                 <div class="md:flex-1 px-4">
                     <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">

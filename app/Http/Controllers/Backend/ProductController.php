@@ -60,4 +60,32 @@ class ProductController extends Controller
 
         return redirect()->route('admin.products.index');
     }
+
+    public function updateDescription(Request $request, Product $product)
+    {
+        $validated = $request->validate([
+            'description' => 'required|string|max:255',
+        ]);
+
+        $product->update($validated);
+
+        return response()->json(['success' => true]);
+    }
+
+    public function updateSupplyPrice(Request $request, Product $product)
+    {
+        $validated = $request->validate([
+            'supply_price' => 'required|numeric|min:0',
+        ]);
+
+        $supply_price = $validated['supply_price'];
+        $wholesale_price = $supply_price * 1.05;
+
+        $product->update([
+            'supply_price' => $supply_price,
+            'wholesale_price' => $wholesale_price,
+        ]);
+
+        return response()->json(['success' => true, 'wholesale_price' => $wholesale_price]);
+    }
 }

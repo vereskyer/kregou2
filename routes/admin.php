@@ -98,6 +98,12 @@ Route::get('/bulk-product-upload', [BulkProductUploadController::class, 'create'
     ->name('bulk-product-upload.create');
 Route::post('/bulk-product-upload', [BulkProductUploadController::class, 'store'])
     ->name('bulk-product-upload.store');
+// 商品列表頁面js更新description
+Route::post('/products/{product}/update-description', [ProductController::class, 'updateDescription'])
+    ->name('products.updateDescription');
+    // 商品列表頁面js更新supply_price
+Route::post('/products/{product}/update-supply-price', [ProductController::class, 'updateSupplyPrice'])
+    ->name('products.updateSupplyPrice');
 
 // cart routes
 Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');

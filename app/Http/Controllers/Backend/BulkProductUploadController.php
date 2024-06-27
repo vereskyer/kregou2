@@ -24,7 +24,8 @@ class BulkProductUploadController extends Controller
         $request->validate([
             'category_id' => 'required|exists:categories,id',
             'images' => 'required|array',
-            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'default_supply_price' => 'required|numeric|min:0' // 添加默认 supply_price 的验证
         ]);
 
         $category = Category::findOrFail($request->category_id);
@@ -34,18 +35,22 @@ class BulkProductUploadController extends Controller
         DB::beginTransaction();
 
         try {
-            // 使用 uploadMultiImage 方法上傳圖片
+            // 使用 uploadMultiImage 方法上传图片
             $imagePaths = $this->uploadMultiImage($request, 'images', 'uploads/products', $category->id);
 
             if ($imagePaths) {
                 foreach ($imagePaths as $imagePath) {
+                    $supply_price = $request->default_supply_price; // 使用默认的 supply_price
+                    $wholesale_price = $supply_price * 1.05; // 计算 wholesale_price
+
                     Product::create([
                         'category_id' => $category->id,
                         'name' => $counter,
                         'image' => $imagePath,
-                        'wholesale_price' => 0, // 設置默認值
-                        'quantity' => 1000, // 設置默認值
-                        'active' => 1, // 設置默認值
+                        'supply_price' => $supply_price,
+                        'wholesale_price' => $wholesale_price,
+                        'quantity' => 1000, // 设置默认值
+                        'active' => 1, // 设置默认值
                     ]);
 
                     $counter++;
@@ -53,10 +58,10 @@ class BulkProductUploadController extends Controller
             }
 
             DB::commit();
-            return redirect()->back()->with('success', '商品批量上傳成功');
+            return redirect()->back()->with('success', '商品批量上传成功');
         } catch (\Exception $e) {
             DB::rollback();
-            return redirect()->back()->with('error', '上傳失敗：' . $e->getMessage());
+            return redirect()->back()->with('error', '上传失败：' . $e->getMessage());
         }
     }
 }

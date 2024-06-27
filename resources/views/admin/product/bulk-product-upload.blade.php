@@ -16,6 +16,11 @@
                 </select>
             </div>
 
+            <div class="form-group">
+                <label for="default_supply_price">默认供应价格</label>
+                <input type="number" step="0.01" name="default_supply_price" id="default_supply_price" class="form-control" required>
+            </div>
+
             <div class="mb-6 pt-4">
                 <label class="mb-5 block text-xl font-semibold text-[#07074D]">
                     上傳文件

@@ -1,7 +1,6 @@
 @extends('admin.layouts.master')
 
 @section('head')
-
 @endsection
 
 @section('content')
@@ -12,83 +11,99 @@
             </h2>
 
             <a href="{{ route('admin.products.create') }}"
-                                class="ml-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50">
-                                添加新的商品
-                        </a>
+                class="ml-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50">
+                添加新的商品
+            </a>
 
             <div class="mt-6 w-full overflow-hidden rounded-lg shadow-xs">
                 <div class="w-full overflow-x-auto">
 
 
                     <!-- Table -->
-                    <table class="w-full whitespace-no-wrap table-auto">
-                        <thead>
-                            <tr
-                                class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">Image</th>
-                                <th class="px-4 py-3">商品名稱</th>
-                                <th class="px-4 py-3">韓語名稱</th>
-                                <th class="px-4 py-3">Url</th>
-                                <th class="px-4 py-3">Buy Url</th>
-                                <th class="px-4 py-3">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                            @forelse ($products as $product)
-                                <tr class="text-gray-700 dark:text-gray-400">
-                                    <td class="px-4 py-3 text-xs w-60 flex">
-                                        <div class="h-min overflow-hidden rounded-md">
-                                            <img src="{{ asset($product->image) }}" alt="" 
-                                                class="h-60 w-80 hover:scale-150 image-large transition-all duration-500 cursor-pointer">
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-3 text-sm">{{ $product->name }}</td>
-                                    <td class="px-4 py-3 text-sm">{{ $product->korean_name }}</td>
-                                    <td class="px-4 py-3 text-sm">
-                                        <a href="{{ $product->url }}" target="_blank">{{ $product->url }}</a></td>
-                                    <td class="px-4 py-3 text-sm"><a href="{{ $product->admin_url }}" target="_blank">{{ $product->admin_url }}</a></td>
-                                    <td class="px-4 py-3">
-                                        <div class="flex items-center space-x-4 text-sm">
-                                            <a href="#"
-                                                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                aria-label="Edit">
-                                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
-                                                    viewBox="0 0 20 20">
-                                                    <path
-                                                        d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
-                                                    </path>
-                                                </svg>
-                                            </a>
-
-                                            <a href="#"
-                                                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                aria-label="Edit">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                                  </svg>
-                                                  
-                                            </a>
-                                            <button
-                                                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                aria-label="Delete">
-                                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
-                                                    viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd"
-                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </td>
+                    <div class="overflow-x-auto">
+                        <table class="w-full whitespace-normal table-auto">
+                            <thead>
+                                <tr
+                                    class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                    <th class="px-3 py-4 w-40">Image</th>
+                                    <th class="px-3 py-4 w-40">商品名稱</th>
+                                    <th class="px-3 py-4 w-40">韓語名稱</th>
+                                    <th class="px-3 py-4 w-72">描述</th>
+                                    <th class="px-3 py-4 w-32 text-red-600">供貨價格</th>
+                                    <th class="px-3 py-4 w-32">批發價格</th>
+                                    <th class="px-3 py-4 w-32">Actions</th>
                                 </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="8" class="px-4 py-3 text-center text-gray-500 dark:text-gray-400">No
-                                        products found</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                                @forelse ($products as $product)
+                                    <tr class="text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <td class="px-3 py-4 text-sm">
+                                            <div class="h-32 w-36 overflow-hidden rounded-md">
+                                                <img src="{{ asset($product->image) }}" alt=""
+                                                    class="h-full w-full object-cover hover:scale-150 transition-all duration-500 cursor-pointer">
+                                            </div>
+                                        </td>
+                                        <td class="px-3 py-4 text-sm">
+                                            <div class="w-40 break-words">{{ $product->name }}</div>
+                                        </td>
+                                        <td class="px-3 py-4 text-sm">
+                                            <div class="w-40 break-words">{{ $product->korean_name }}</div>
+                                        </td>
+                                        <td class="px-3 py-4 text-sm">
+                                            <div class="w-72 h-32 overflow-y-auto">
+                                                <span class="description-text" data-product-id="{{ $product->id }}">
+                                                    {{ Str::limit($product->description, 300) }}
+                                                </span>
+                                                <textarea class="description-input hidden w-full h-28 mt-2" style="display: none;">{{ $product->description }}</textarea>
+                                                <button class="edit-description-btn mt-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                        class="w-5 h-5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td class="px-3 py-4 text-sm">
+                                            <div class="w-32">
+                                                <span class="supply-price-text text-red-600"
+                                                    data-product-id="{{ $product->id }}">{{ $product->supply_price }}</span>
+                                                <input type="number" step="0.01"
+                                                    class="supply-price-input hidden w-full mt-2"
+                                                    value="{{ $product->supply_price }}" style="display: none;">
+                                                <button class="edit-supply-price-btn mt-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                        class="w-5 h-5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td class="px-3 py-4 text-sm">
+                                            <div class="w-32">
+                                                <span class="wholesale-price-text"
+                                                    data-product-id="{{ $product->id }}">{{ $product->wholesale_price }}</span>
+                                            </div>
+                                        </td>
+                                       
+                                        <td class="px-3 py-4">
+                                            <div class="flex items-center space-x-2 text-sm">
+                                                <!-- Actions buttons here -->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="9" class="px-3 py-4 text-center text-gray-500 dark:text-gray-400">No
+                                            products found</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div>
                     <!-- Pagination -->
@@ -97,7 +112,119 @@
             </div>
         </div>
     </main>
-    {{-- @push('scripts')
-    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
-@endpush --}}
+    @push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // 描述编辑功能（保持原有代码不变）
+                const editButtons = document.querySelectorAll('.edit-description-btn');
+
+                editButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const container = this.closest('div');
+                        const text = container.querySelector('.description-text');
+                        const input = container.querySelector('.description-input');
+                        text.style.display = 'none';
+                        input.style.display = 'inline-block';
+                        input.focus();
+                    });
+                });
+
+                const descriptionInputs = document.querySelectorAll('.description-input');
+
+                descriptionInputs.forEach(input => {
+                    input.addEventListener('blur', function() {
+                        const container = this.closest('div');
+                        const text = container.querySelector('.description-text');
+                        const productId = text.dataset.productId;
+                        const newDescription = this.value;
+
+                        // 发送AJAX请求更新描述
+                        fetch(`/admin/products/${productId}/update-description`, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                },
+                                body: JSON.stringify({
+                                    description: newDescription
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    text.textContent = newDescription;
+                                    this.style.display = 'none';
+                                    text.style.display = 'inline-block';
+                                } else {
+                                    alert('更新失败，请重试');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert('更新时发生错误');
+                            });
+                    });
+                });
+
+
+                // Supply Price 编辑功能
+                const editSupplyPriceButtons = document.querySelectorAll('.edit-supply-price-btn');
+
+                editSupplyPriceButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const container = this.closest('div');
+                        const text = container.querySelector('.supply-price-text');
+                        const input = container.querySelector('.supply-price-input');
+                        text.style.display = 'none';
+                        input.style.display = 'inline-block';
+                        input.focus();
+                    });
+                });
+
+                const supplyPriceInputs = document.querySelectorAll('.supply-price-input');
+
+                supplyPriceInputs.forEach(input => {
+                    input.addEventListener('blur', function() {
+                        const container = this.closest('div');
+                        const text = container.querySelector('.supply-price-text');
+                        const productId = text.dataset.productId;
+                        const newSupplyPrice = this.value;
+
+                        // 发送AJAX请求更新供应价格
+                        fetch(`/admin/products/${productId}/update-supply-price`, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                },
+                                body: JSON.stringify({
+                                    supply_price: newSupplyPrice
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    text.textContent = newSupplyPrice;
+                                    this.style.display = 'none';
+                                    text.style.display = 'inline-block';
+
+                                    // 更新 wholesale_price 显示
+                                    const wholesalePriceText = document.querySelector(
+                                        `.wholesale-price-text[data-product-id="${productId}"]`);
+                                    if (wholesalePriceText) {
+                                        wholesalePriceText.textContent = data.wholesale_price;
+                                    }
+                                } else {
+                                    alert('更新失败，请重试');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert('更新时发生错误');
+                            });
+                    });
+                });
+            });
+        </script>
+    @endpush
 @endsection

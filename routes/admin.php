@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\SiteorderController;
 use App\Http\Controllers\Backend\AdminOrderController;
 use App\Http\Controllers\Backend\StoreImageController;
 use App\Http\Controllers\Backend\KoreanArticleController;
+use App\Http\Controllers\Backend\BulkProductUploadController;
 
 // admin dashboard sidebar
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -92,6 +93,11 @@ Route::post('/bandsales/store', [BandsaleController::class, 'store'])->name('ban
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
+// 批量商品上架
+Route::get('/bulk-product-upload', [BulkProductUploadController::class, 'create'])
+    ->name('bulk-product-upload.create');
+Route::post('/bulk-product-upload', [BulkProductUploadController::class, 'store'])
+    ->name('bulk-product-upload.store');
 
 // cart routes
 Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');
@@ -106,7 +112,7 @@ Route::post('/update-order-item-status', [AdminOrderController::class, 'updateOr
 // Route::post('/update-order-item-status', [AdminOrderController::class, 'updateOrderItemStatus']);
 Route::post('/bulk-update-order-item-status', [AdminOrderController::class, 'bulkUpdateOrderItemStatus'])
     ->name('bulk-update-order-item-status');
-    
+
 // order items routes
 Route::get('/order-items', [OrderItemController::class, 'index'])->name('order-items.index');
 Route::get('/order-items/not-ordered', [OrderItemController::class, 'notOrdered'])->name('order-items.not-ordered');

@@ -71,7 +71,7 @@
                                                     onchange="updateOrderItemStatus(this)">
                                                 <span id="ordered_status_{{ $item->id }}">
                                                     {{ $item->ordered_at ? \Carbon\Carbon::parse($item->ordered_at)->format('Y-m-d') : '未訂貨' }}
-                                                </span>
+                                                </span> 
                                             </td>
                                             <td class="px-4 py-3 text-sm">
                                                 <input type="checkbox" class="w-5 h-5 accent-red-600 order-item-status"

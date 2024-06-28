@@ -58,7 +58,7 @@ class BulkProductUploadController extends Controller
             }
 
             DB::commit();
-            return redirect()->back()->with('success', '商品批量上传成功');
+            return redirect()->route('admin.products.index')->with('success', '商品批量上传成功');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->with('error', '上传失败：' . $e->getMessage());

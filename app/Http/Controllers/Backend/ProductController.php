@@ -88,4 +88,15 @@ class ProductController extends Controller
 
         return response()->json(['success' => true, 'wholesale_price' => $wholesale_price]);
     }
+
+    public function updateName(Request $request, Product $product)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $product->update($validated);
+
+        return response()->json(['success' => true]);
+    }
 }

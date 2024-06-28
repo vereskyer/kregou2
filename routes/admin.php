@@ -101,9 +101,12 @@ Route::post('/bulk-product-upload', [BulkProductUploadController::class, 'store'
 // 商品列表頁面js更新description
 Route::post('/products/{product}/update-description', [ProductController::class, 'updateDescription'])
     ->name('products.updateDescription');
-    // 商品列表頁面js更新supply_price
+// 商品列表頁面js更新supply_price
 Route::post('/products/{product}/update-supply-price', [ProductController::class, 'updateSupplyPrice'])
     ->name('products.updateSupplyPrice');
+// 商品列表頁面js更新 商品名稱
+Route::post('/products/{product}/update-name', [ProductController::class, 'updateName'])
+    ->name('products.updateName');
 
 // cart routes
 Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');

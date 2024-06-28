@@ -44,7 +44,20 @@
                                             </div>
                                         </td>
                                         <td class="px-3 py-4 text-sm">
-                                            <div class="w-40 break-words">{{ $product->name }}</div>
+                                            <div class="w-40 break-words">
+                                                <span class="product-name-text"
+                                                    data-product-id="{{ $product->id }}">{{ $product->name }}</span>
+                                                <input type="text" class="product-name-input hidden w-full mt-2"
+                                                    value="{{ $product->name }}" style="display: none;">
+                                                <button class="edit-product-name-btn mt-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                        class="w-5 h-5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </td>
                                         <td class="px-3 py-4 text-sm">
                                             <div class="w-40 break-words">{{ $product->korean_name }}</div>
@@ -88,7 +101,7 @@
                                                     data-product-id="{{ $product->id }}">{{ $product->wholesale_price }}</span>
                                             </div>
                                         </td>
-                                       
+
                                         <td class="px-3 py-4">
                                             <div class="flex items-center space-x-2 text-sm">
                                                 <!-- Actions buttons here -->
@@ -214,6 +227,57 @@
                                     if (wholesalePriceText) {
                                         wholesalePriceText.textContent = data.wholesale_price;
                                     }
+                                } else {
+                                    alert('更新失败，请重试');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert('更新时发生错误');
+                            });
+                    });
+                });
+
+                // 商品名称编辑功能
+                const editProductNameButtons = document.querySelectorAll('.edit-product-name-btn');
+
+                editProductNameButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const container = this.closest('div');
+                        const text = container.querySelector('.product-name-text');
+                        const input = container.querySelector('.product-name-input');
+                        text.style.display = 'none';
+                        input.style.display = 'inline-block';
+                        input.focus();
+                    });
+                });
+
+                const productNameInputs = document.querySelectorAll('.product-name-input');
+
+                productNameInputs.forEach(input => {
+                    input.addEventListener('blur', function() {
+                        const container = this.closest('div');
+                        const text = container.querySelector('.product-name-text');
+                        const productId = text.dataset.productId;
+                        const newName = this.value;
+
+                        // 发送AJAX请求更新商品名称
+                        fetch(`/admin/products/${productId}/update-name`, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                },
+                                body: JSON.stringify({
+                                    name: newName
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    text.textContent = newName;
+                                    this.style.display = 'none';
+                                    text.style.display = 'inline-block';
                                 } else {
                                     alert('更新失败，请重试');
                                 }
